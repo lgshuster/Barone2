@@ -11656,6 +11656,7 @@ Created by Upverter.com</description>
 <part name="U$42" library="microbuilder" deviceset="VIN" device="" value="3.3V"/>
 <part name="U$45" library="microbuilder" deviceset="VIN" device="" value="3.3V"/>
 <part name="U$46" library="microbuilder" deviceset="GND" device=""/>
+<part name="JP1" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="PINHD-1X8" device="-3.5MM" package3d_urn="urn:adsk.eagle:package:6240817/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -12333,6 +12334,10 @@ to GND when unused</text>
 </instance>
 <instance part="U$46" gate="G$1" x="187.96" y="27.94" smashed="yes">
 <attribute name="VALUE" x="186.436" y="25.4" size="1.27" layer="96"/>
+</instance>
+<instance part="JP1" gate="G$1" x="58.42" y="-17.78" smashed="yes">
+<attribute name="NAME" x="52.07" y="-6.985" size="1.778" layer="95"/>
+<attribute name="VALUE" x="52.07" y="-33.02" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -13211,6 +13216,7 @@ to GND when unused</text>
 <junction x="88.9" y="66.04"/>
 <wire x1="187.96" y1="121.92" x2="101.6" y2="121.92" width="0.1524" layer="91"/>
 <junction x="101.6" y="121.92"/>
+<label x="147.32" y="121.92" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MISO_M2" class="0">
@@ -13232,6 +13238,7 @@ to GND when unused</text>
 <wire x1="104.14" y1="127" x2="104.14" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="187.96" y1="127" x2="104.14" y2="127" width="0.1524" layer="91"/>
 <junction x="104.14" y="127"/>
+<label x="147.32" y="127" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -13376,6 +13383,7 @@ to GND when unused</text>
 <junction x="83.82" y="63.5"/>
 <wire x1="187.96" y1="119.38" x2="106.68" y2="119.38" width="0.1524" layer="91"/>
 <junction x="106.68" y="119.38"/>
+<label x="147.32" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TRIG_SON3" class="0">
@@ -13788,6 +13796,7 @@ to GND when unused</text>
 <label x="60.96" y="7.62" size="1.778" layer="95"/>
 <pinref part="SODIMM_M2_PINOUT" gate="G$1" pin="45"/>
 <label x="175.26" y="104.14" size="1.778" layer="95"/>
+<label x="147.32" y="104.14" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="IMU_SCL" class="0">

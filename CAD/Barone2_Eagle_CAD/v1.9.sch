@@ -11302,6 +11302,8 @@ Created by Upverter.com</description>
 <part name="C31" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="0.1uF"/>
 <part name="U$54" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$55" library="microbuilder" deviceset="VIN" device="" value="11.1V"/>
+<part name="INT_LLC_IMU" library="BSS138" deviceset="BSS138" device=""/>
+<part name="U$25" library="microbuilder" deviceset="VIN" device="" value="3.3V"/>
 </parts>
 <sheets>
 <sheet>
@@ -12034,6 +12036,10 @@ to GND when unused</text>
 </instance>
 <instance part="U$55" gate="G$1" x="431.8" y="353.06" smashed="yes">
 <attribute name="VALUE" x="430.276" y="354.076" size="1.27" layer="96"/>
+</instance>
+<instance part="INT_LLC_IMU" gate="G$1" x="53.34" y="208.28" smashed="yes"/>
+<instance part="U$25" gate="G$1" x="58.42" y="205.74" smashed="yes">
+<attribute name="VALUE" x="56.896" y="206.756" size="1.27" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -12847,6 +12853,11 @@ to GND when unused</text>
 <wire x1="396.24" y1="332.74" x2="396.24" y2="337.82" width="0.1524" layer="91"/>
 <junction x="396.24" y="332.74"/>
 </segment>
+<segment>
+<pinref part="INT_LLC_IMU" gate="G$1" pin="S"/>
+<pinref part="U$25" gate="G$1" pin="VIN"/>
+<wire x1="55.88" y1="203.2" x2="58.42" y2="203.2" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="ECHO_SON0" class="0">
 <segment>
@@ -13038,19 +13049,15 @@ to GND when unused</text>
 </net>
 <net name="INT_IMU" class="0">
 <segment>
-<pinref part="IMU" gate="G$1" pin="INT1"/>
-<wire x1="60.96" y1="185.42" x2="63.5" y2="185.42" width="0.1524" layer="91"/>
-<label x="50.8" y="203.2" size="1.778" layer="95"/>
-<wire x1="60.96" y1="185.42" x2="53.34" y2="185.42" width="0.1524" layer="91"/>
-<junction x="60.96" y="185.42"/>
-<wire x1="53.34" y1="185.42" x2="53.34" y2="172.72" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="172.72" x2="45.72" y2="172.72" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="172.72" x2="45.72" y2="203.2" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="203.2" x2="182.88" y2="203.2" width="0.1524" layer="91"/>
 <pinref part="M1" gate="G$1" pin="SDI2/PMA4/CN9/RG7"/>
 <wire x1="193.04" y1="297.18" x2="182.88" y2="297.18" width="0.1524" layer="91"/>
 <wire x1="182.88" y1="297.18" x2="182.88" y2="203.2" width="0.1524" layer="91"/>
 <label x="182.88" y="297.18" size="1.778" layer="95"/>
+<pinref part="INT_LLC_IMU" gate="G$1" pin="D"/>
+<wire x1="55.88" y1="213.36" x2="60.96" y2="213.36" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="213.36" x2="60.96" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="203.2" x2="182.88" y2="203.2" width="0.1524" layer="91"/>
+<label x="63.5" y="203.2" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SCK_M2" class="0">
@@ -13965,6 +13972,20 @@ to GND when unused</text>
 <wire x1="43.18" y1="152.4" x2="43.18" y2="200.66" width="0.1524" layer="91"/>
 <junction x="43.18" y="200.66"/>
 <label x="43.18" y="157.48" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
+<net name="INT_SOURCE_IMU" class="0">
+<segment>
+<pinref part="IMU" gate="G$1" pin="INT1"/>
+<wire x1="60.96" y1="185.42" x2="63.5" y2="185.42" width="0.1524" layer="91"/>
+<junction x="60.96" y="185.42"/>
+<wire x1="60.96" y1="185.42" x2="53.34" y2="185.42" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="185.42" x2="53.34" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="172.72" x2="45.72" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="172.72" x2="45.72" y2="205.74" width="0.1524" layer="91"/>
+<pinref part="INT_LLC_IMU" gate="G$1" pin="G"/>
+<wire x1="45.72" y1="205.74" x2="50.8" y2="205.74" width="0.1524" layer="91"/>
+<label x="30.48" y="205.74" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

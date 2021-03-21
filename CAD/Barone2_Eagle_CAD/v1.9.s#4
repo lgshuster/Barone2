@@ -11651,6 +11651,7 @@ IO, and SDRAM</text>
 IO, and SDRAM</text>
 <text x="368.3" y="101.6" size="1.778" layer="94">(PIN168)USB_OTGID connected
 to GND when unused</text>
+<text x="424.18" y="317.5" size="1.778" layer="94">Power to 4 sevos</text>
 </plain>
 <instances>
 <instance part="U$44" gate="G$1" x="71.12" y="213.36" smashed="yes">

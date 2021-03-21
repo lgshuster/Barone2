@@ -3237,6 +3237,17 @@ design rules under a new name.</description>
 <attribute name="SPICEPREFIX" value="C" x="22.86" y="20.32" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="21.59" y="24.13" size="1.27" layer="27"/>
 </element>
+<element name="INT_LLC_IMU" library="BSS138" package="SOT95P240X111-3N" value="BSS138" x="77.47" y="30.48" smashed="yes" rot="R90">
+<attribute name="AVAILABILITY" value="Good" x="69.85" y="22.86" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value=" N-Channel 50V 220mA (Ta) 360mW (Ta) Surface Mount SOT-23-3 " x="69.85" y="22.86" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value="ON Semiconductor" x="69.85" y="22.86" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MP" value="BSS138" x="69.85" y="22.86" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="75.47" y="28.48" size="0.8128" layer="25" rot="R90"/>
+<attribute name="PACKAGE" value="SOT-23 ON" x="69.85" y="22.86" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PRICE" value="None" x="69.85" y="22.86" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PURCHASE-URL" value="https://pricing.snapeda.com/search/part/BSS138/?ref=eda" x="69.85" y="22.86" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="79.47" y="28.48" size="0.8128" layer="27" rot="R90" align="top-left"/>
+</element>
 </elements>
 <signals>
 <signal name="VBUS">
@@ -3582,6 +3593,7 @@ design rules under a new name.</description>
 <contactref element="C27" pad="1"/>
 <contactref element="C29" pad="1"/>
 <contactref element="5V_SRVO_2" pad="3"/>
+<contactref element="INT_LLC_IMU" pad="2"/>
 <wire x1="90.66" y1="91.18" x2="92.39" y2="96.52" width="0" layer="19" extent="1-1"/>
 <wire x1="73.03" y1="91.73" x2="90.66" y2="91.18" width="0" layer="19" extent="1-1"/>
 <wire x1="72.43" y1="91.73" x2="73.03" y2="91.73" width="0" layer="19" extent="1-1"/>
@@ -3619,6 +3631,7 @@ design rules under a new name.</description>
 <wire x1="23.23" y1="91.73" x2="27.43" y2="91.73" width="0" layer="19" extent="1-1"/>
 <wire x1="27.13" y1="83.53" x2="27.43" y2="91.73" width="0" layer="19" extent="1-1"/>
 <wire x1="22.93" y1="83.53" x2="27.13" y2="83.53" width="0" layer="19" extent="1-1"/>
+<wire x1="78.42" y1="29.42" x2="9.21" y2="26.67" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="ECHO_SON0">
 <contactref element="SON_0" pad="3"/>
@@ -3693,9 +3706,9 @@ design rules under a new name.</description>
 <wire x1="42.605" y1="38.31" x2="19.05" y2="2.54" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="INT_IMU">
-<contactref element="IMU" pad="12"/>
 <contactref element="M1" pad="5"/>
-<wire x1="42.605" y1="37.31" x2="73.39" y2="34.015" width="0" layer="19" extent="1-1"/>
+<contactref element="INT_LLC_IMU" pad="3"/>
+<wire x1="77.47" y1="31.54" x2="42.605" y2="37.31" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SCK_M2">
 <contactref element="M1" pad="13"/>
@@ -4121,6 +4134,11 @@ design rules under a new name.</description>
 <wire x1="71.79" y1="34.015" x2="73.935" y2="34.56" width="0" layer="19" extent="1-1"/>
 <wire x1="72.19" y1="37.105" x2="73.935" y2="34.56" width="0" layer="19" extent="1-1"/>
 <wire x1="67.1" y1="32.7" x2="71.79" y2="34.015" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="INT_SOURCE_IMU">
+<contactref element="IMU" pad="12"/>
+<contactref element="INT_LLC_IMU" pad="1"/>
+<wire x1="76.52" y1="29.42" x2="73.39" y2="34.015" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
