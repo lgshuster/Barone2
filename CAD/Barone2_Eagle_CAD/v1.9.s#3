@@ -11439,7 +11439,7 @@ Created by Upverter.com</description>
 <part name="U$168" library="microbuilder" deviceset="GND" device=""/>
 <part name="SCL_OUT_IMU1" library="BSS138" deviceset="BSS138" device=""/>
 <part name="U$3" library="microbuilder" deviceset="VIN" device="" value="3.3V"/>
-<part name="Q1" library="BSS138" deviceset="BSS138" device=""/>
+<part name="SDA_OUT_IMU" library="BSS138" deviceset="BSS138" device=""/>
 <part name="U$14" library="microbuilder" deviceset="VIN" device="" value="3.3V"/>
 <part name="U$31" library="microbuilder" deviceset="VIN" device="" value="3.3V"/>
 <part name="1V8_M2" library="STMicroelectronics - LD1117DT33CTR" deviceset="STMICROELECTRONICS_LD1117DT33CTR" device="STMICROELECTRONICS_LD1117DT33CTR_0_2"/>
@@ -11462,8 +11462,6 @@ Created by Upverter.com</description>
 <part name="C8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="10uF"/>
 <part name="C10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="0.1uF"/>
 <part name="U$10" library="microbuilder" deviceset="GND" device=""/>
-<part name="U$26" library="microbuilder" deviceset="VIN" device="" value="11.1V"/>
-<part name="U$17" library="microbuilder" deviceset="VIN" device="" value="11.1V"/>
 <part name="U$47" library="microbuilder" deviceset="GND" device=""/>
 <part name="5V_BUCK_OUT" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="1X4" device="-BIG" package3d_urn="urn:adsk.eagle:package:6240658/1"/>
 <part name="GND" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="1X4" device="-BIG" package3d_urn="urn:adsk.eagle:package:6240658/1"/>
@@ -11480,7 +11478,6 @@ Created by Upverter.com</description>
 <part name="J3" library="DX07S016JA1R1500" deviceset="DX07S016JA1R1500" device="" value="USB_C_Port_PIC32"/>
 <part name="U$41" library="microbuilder" deviceset="GND" device=""/>
 <part name="CAMERA_POWER" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="1X2" device="-3.5MM" package3d_urn="urn:adsk.eagle:package:6240635/1"/>
-<part name="U$18" library="microbuilder" deviceset="VIN" device="" value="11.1V"/>
 <part name="U$42" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$50" library="microbuilder" deviceset="GND" device=""/>
 <part name="U1" library="FT232RQ" deviceset="FT232RQ" device=""/>
@@ -12060,7 +12057,7 @@ Magnetometer data                       SHOULD</text>
 <instance part="U$3" gate="G$1" x="139.7" y="180.34" smashed="yes">
 <attribute name="VALUE" x="138.176" y="181.356" size="1.27" layer="96"/>
 </instance>
-<instance part="Q1" gate="G$1" x="129.54" y="187.96" smashed="yes" rot="R180"/>
+<instance part="SDA_OUT_IMU" gate="G$1" x="129.54" y="187.96" smashed="yes" rot="R180"/>
 <instance part="U$14" gate="G$1" x="317.5" y="289.56" smashed="yes">
 <attribute name="VALUE" x="315.976" y="290.576" size="1.27" layer="96"/>
 </instance>
@@ -12134,12 +12131,6 @@ Magnetometer data                       SHOULD</text>
 <instance part="U$10" gate="G$1" x="368.3" y="27.94" smashed="yes">
 <attribute name="VALUE" x="366.776" y="25.4" size="1.27" layer="96"/>
 </instance>
-<instance part="U$26" gate="G$1" x="96.52" y="408.94" smashed="yes">
-<attribute name="VALUE" x="94.996" y="409.956" size="1.27" layer="96"/>
-</instance>
-<instance part="U$17" gate="G$1" x="355.6" y="53.34" smashed="yes">
-<attribute name="VALUE" x="354.076" y="54.356" size="1.27" layer="96"/>
-</instance>
 <instance part="U$47" gate="G$1" x="518.16" y="127" smashed="yes">
 <attribute name="VALUE" x="516.636" y="127" size="1.27" layer="96"/>
 </instance>
@@ -12186,9 +12177,6 @@ Magnetometer data                       SHOULD</text>
 <attribute name="VALUE" x="519.176" y="327.66" size="1.27" layer="96"/>
 </instance>
 <instance part="CAMERA_POWER" gate="G$1" x="530.86" y="154.94" smashed="yes"/>
-<instance part="U$18" gate="G$1" x="482.6" y="96.52" smashed="yes">
-<attribute name="VALUE" x="481.076" y="97.536" size="1.27" layer="96"/>
-</instance>
 <instance part="U$42" gate="G$1" x="525.78" y="149.86" smashed="yes">
 <attribute name="VALUE" x="524.256" y="149.86" size="1.27" layer="96"/>
 </instance>
@@ -12799,7 +12787,7 @@ Magnetometer data                       SHOULD</text>
 <pinref part="SCL_OUT_IMU1" gate="G$1" pin="D"/>
 <wire x1="137.16" y1="187.96" x2="144.78" y2="187.96" width="0.1524" layer="91"/>
 <junction x="144.78" y="187.96"/>
-<pinref part="Q1" gate="G$1" pin="G"/>
+<pinref part="SDA_OUT_IMU" gate="G$1" pin="G"/>
 <wire x1="132.08" y1="190.5" x2="144.78" y2="190.5" width="0.1524" layer="91"/>
 <junction x="144.78" y="190.5"/>
 <label x="132.08" y="132.08" size="1.778" layer="95"/>
@@ -13009,10 +12997,6 @@ Magnetometer data                       SHOULD</text>
 <pinref part="INT_LLC_IMU" gate="G$1" pin="S"/>
 <pinref part="U$25" gate="G$1" pin="VIN"/>
 <wire x1="55.88" y1="203.2" x2="58.42" y2="203.2" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<wire x1="482.6" y1="93.98" x2="482.6" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="U$18" gate="G$1" pin="VIN"/>
 </segment>
 <segment>
 <pinref part="U$51" gate="G$1" pin="VIN"/>
@@ -13466,6 +13450,23 @@ Magnetometer data                       SHOULD</text>
 <wire x1="505.46" y1="172.72" x2="525.78" y2="172.72" width="0.1524" layer="91"/>
 <wire x1="525.78" y1="172.72" x2="525.78" y2="157.48" width="0.1524" layer="91"/>
 <junction x="505.46" y="172.72"/>
+<wire x1="474.98" y1="86.36" x2="474.98" y2="0" width="0.1524" layer="91"/>
+<wire x1="474.98" y1="0" x2="347.98" y2="0" width="0.1524" layer="91"/>
+<junction x="474.98" y="86.36"/>
+<pinref part="5V_SON" gate="G$0" pin="VIN"/>
+<pinref part="C4" gate="G$1" pin="1"/>
+<wire x1="347.98" y1="0" x2="0" y2="0" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="396.24" x2="96.52" y2="398.78" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="406.4" x2="96.52" y2="398.78" width="0.1524" layer="91"/>
+<wire x1="0" y1="0" x2="0" y2="406.4" width="0.1524" layer="91"/>
+<wire x1="0" y1="406.4" x2="96.52" y2="406.4" width="0.1524" layer="91"/>
+<pinref part="5V_M2" gate="G$0" pin="VIN"/>
+<pinref part="C10" gate="G$1" pin="1"/>
+<wire x1="355.6" y1="43.18" x2="355.6" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="355.6" y1="50.8" x2="355.6" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="355.6" y1="50.8" x2="347.98" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="347.98" y1="50.8" x2="347.98" y2="0" width="0.1524" layer="91"/>
+<junction x="347.98" y="0"/>
 </segment>
 </net>
 <net name="OC1_M1" class="0">
@@ -13720,6 +13721,45 @@ Magnetometer data                       SHOULD</text>
 <wire x1="320.04" y1="55.88" x2="320.04" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="320.04" y1="81.28" x2="342.9" y2="81.28" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="C6" gate="G$1" pin="1"/>
+<pinref part="1V8_OUT" gate="G$0" pin="VOUT"/>
+<wire x1="38.1" y1="185.42" x2="38.1" y2="187.96" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="187.96" x2="38.1" y2="200.66" width="0.1524" layer="91"/>
+<junction x="38.1" y="187.96"/>
+<label x="38.1" y="190.5" size="1.778" layer="95"/>
+<wire x1="38.1" y1="200.66" x2="43.18" y2="200.66" width="0.1524" layer="91"/>
+<pinref part="IMU" gate="G$1" pin="VDD"/>
+<wire x1="43.18" y1="200.66" x2="50.8" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="193.04" x2="55.88" y2="193.04" width="0.1524" layer="91"/>
+<pinref part="C14" gate="G$1" pin="1"/>
+<pinref part="IMU" gate="G$1" pin="VDDIO"/>
+<wire x1="55.88" y1="193.04" x2="60.96" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="190.5" x2="55.88" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="190.5" x2="55.88" y2="193.04" width="0.1524" layer="91"/>
+<junction x="55.88" y="193.04"/>
+<wire x1="50.8" y1="200.66" x2="50.8" y2="193.04" width="0.1524" layer="91"/>
+<junction x="50.8" y="193.04"/>
+<junction x="50.8" y="200.66"/>
+<wire x1="50.8" y1="200.66" x2="104.14" y2="200.66" width="0.1524" layer="91"/>
+<pinref part="SDA_OUT_IMU" gate="G$1" pin="S"/>
+<wire x1="121.92" y1="193.04" x2="127" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="193.04" x2="121.92" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="180.34" x2="104.14" y2="180.34" width="0.1524" layer="91"/>
+<pinref part="Q2" gate="G$1" pin="S"/>
+<wire x1="104.14" y1="200.66" x2="109.22" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="180.34" x2="104.14" y2="200.66" width="0.1524" layer="91"/>
+<junction x="104.14" y="200.66"/>
+<label x="99.06" y="200.66" size="1.778" layer="95"/>
+<label x="121.92" y="193.04" size="1.778" layer="95"/>
+<pinref part="IMU" gate="G$1" pin="!CS"/>
+<wire x1="101.6" y1="172.72" x2="111.76" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="172.72" x2="111.76" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="152.4" x2="43.18" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="152.4" x2="43.18" y2="200.66" width="0.1524" layer="91"/>
+<junction x="43.18" y="200.66"/>
+<label x="43.18" y="157.48" size="1.778" layer="95" rot="R90"/>
+</segment>
 </net>
 <net name="USB_D+_M2" class="0">
 <segment>
@@ -13752,7 +13792,7 @@ Magnetometer data                       SHOULD</text>
 <pinref part="SCL_OUT_IMU1" gate="G$1" pin="G"/>
 <wire x1="132.08" y1="180.34" x2="132.08" y2="175.26" width="0.1524" layer="91"/>
 <wire x1="127" y1="175.26" x2="132.08" y2="175.26" width="0.1524" layer="91"/>
-<pinref part="Q1" gate="G$1" pin="D"/>
+<pinref part="SDA_OUT_IMU" gate="G$1" pin="D"/>
 <wire x1="127" y1="182.88" x2="127" y2="175.26" width="0.1524" layer="91"/>
 <junction x="127" y="175.26"/>
 <pinref part="IMU" gate="G$1" pin="SDA/SDI"/>
@@ -14029,65 +14069,6 @@ Magnetometer data                       SHOULD</text>
 <label x="231.14" y="99.06" size="1.778" layer="95"/>
 <label x="203.2" y="38.1" size="1.778" layer="95" rot="R90"/>
 <pinref part="JP1" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="N$11" class="0">
-<segment>
-<pinref part="5V_SON" gate="G$0" pin="VIN"/>
-<pinref part="C4" gate="G$1" pin="1"/>
-<wire x1="96.52" y1="396.24" x2="96.52" y2="398.78" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="406.4" x2="96.52" y2="398.78" width="0.1524" layer="91"/>
-<pinref part="U$26" gate="G$1" pin="VIN"/>
-</segment>
-</net>
-<net name="N$12" class="0">
-<segment>
-<pinref part="5V_M2" gate="G$0" pin="VIN"/>
-<pinref part="C10" gate="G$1" pin="1"/>
-<wire x1="355.6" y1="43.18" x2="355.6" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="355.6" y1="50.8" x2="355.6" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="U$17" gate="G$1" pin="VIN"/>
-</segment>
-</net>
-<net name="CSN_IMU" class="0">
-<segment>
-<pinref part="C6" gate="G$1" pin="1"/>
-<pinref part="1V8_OUT" gate="G$0" pin="VOUT"/>
-<wire x1="38.1" y1="185.42" x2="38.1" y2="187.96" width="0.1524" layer="91"/>
-<wire x1="38.1" y1="187.96" x2="38.1" y2="200.66" width="0.1524" layer="91"/>
-<junction x="38.1" y="187.96"/>
-<label x="38.1" y="190.5" size="1.778" layer="95"/>
-<wire x1="38.1" y1="200.66" x2="43.18" y2="200.66" width="0.1524" layer="91"/>
-<pinref part="IMU" gate="G$1" pin="VDD"/>
-<wire x1="43.18" y1="200.66" x2="50.8" y2="200.66" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="193.04" x2="55.88" y2="193.04" width="0.1524" layer="91"/>
-<pinref part="C14" gate="G$1" pin="1"/>
-<pinref part="IMU" gate="G$1" pin="VDDIO"/>
-<wire x1="55.88" y1="193.04" x2="60.96" y2="193.04" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="190.5" x2="55.88" y2="190.5" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="190.5" x2="55.88" y2="193.04" width="0.1524" layer="91"/>
-<junction x="55.88" y="193.04"/>
-<wire x1="50.8" y1="200.66" x2="50.8" y2="193.04" width="0.1524" layer="91"/>
-<junction x="50.8" y="193.04"/>
-<junction x="50.8" y="200.66"/>
-<wire x1="50.8" y1="200.66" x2="104.14" y2="200.66" width="0.1524" layer="91"/>
-<pinref part="Q1" gate="G$1" pin="S"/>
-<wire x1="121.92" y1="193.04" x2="127" y2="193.04" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="193.04" x2="121.92" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="180.34" x2="104.14" y2="180.34" width="0.1524" layer="91"/>
-<pinref part="Q2" gate="G$1" pin="S"/>
-<wire x1="104.14" y1="200.66" x2="109.22" y2="200.66" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="180.34" x2="104.14" y2="200.66" width="0.1524" layer="91"/>
-<junction x="104.14" y="200.66"/>
-<label x="99.06" y="200.66" size="1.778" layer="95"/>
-<label x="121.92" y="193.04" size="1.778" layer="95"/>
-<pinref part="IMU" gate="G$1" pin="!CS"/>
-<wire x1="101.6" y1="172.72" x2="111.76" y2="172.72" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="172.72" x2="111.76" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="152.4" x2="43.18" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="43.18" y1="152.4" x2="43.18" y2="200.66" width="0.1524" layer="91"/>
-<junction x="43.18" y="200.66"/>
-<label x="43.18" y="157.48" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="INT_SOURCE_IMU" class="0">
