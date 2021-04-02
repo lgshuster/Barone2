@@ -11192,7 +11192,6 @@ Created by Upverter.com</description>
 <part name="B1" library="microbuilder" deviceset="BATTERY" device="CR1220_SMT" value="CR1220"/>
 <part name="U$24" library="microbuilder" deviceset="GND" device=""/>
 <part name="IMU" library="ICM-20948" deviceset="ICM-20948" device=""/>
-<part name="U$27" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$28" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$2" library="microbuilder" deviceset="GND" device=""/>
 <part name="R3" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="R-US_" device="R0805W" package3d_urn="urn:adsk.eagle:package:6240567/1" value="10k"/>
@@ -11333,11 +11332,6 @@ Created by Upverter.com</description>
 <part name="U$3" library="microbuilder" deviceset="VIN" device="" value="3.3V"/>
 <part name="SDA_OUT_IMU" library="BSS138" deviceset="BSS138" device=""/>
 <part name="U$14" library="microbuilder" deviceset="VIN" device="" value="3.3V"/>
-<part name="1V8_M2" library="STMicroelectronics - LD1117DT33CTR" deviceset="STMICROELECTRONICS_LD1117DT33CTR" device="STMICROELECTRONICS_LD1117DT33CTR_0_2"/>
-<part name="C20" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="10uF"/>
-<part name="C21" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="0.1uF"/>
-<part name="U$32" library="microbuilder" deviceset="GND" device=""/>
-<part name="U$35" library="microbuilder" deviceset="VIN" device="" value="3.3V"/>
 <part name="X1" library="CB3LV-3C-20M0000" deviceset="CB3LV-3C-20M0000" device="" value="CB3LV-3C-8M0000"/>
 <part name="U$34" library="microbuilder" deviceset="VIN" device="" value="3.3V"/>
 <part name="U$36" library="microbuilder" deviceset="GND" device=""/>
@@ -11348,10 +11342,6 @@ Created by Upverter.com</description>
 <part name="U$45" library="microbuilder" deviceset="VIN" device="" value="3.3V"/>
 <part name="U$46" library="microbuilder" deviceset="GND" device=""/>
 <part name="JP1" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="PINHD-1X8" device="CLEANBIG" package3d_urn="urn:adsk.eagle:package:6240708/1"/>
-<part name="5V_M2" library="STMicroelectronics - LD1117DT33CTR" deviceset="STMICROELECTRONICS_LD1117DT33CTR" device="STMICROELECTRONICS_LD1117DT33CTR_0_2" value="STMICROELECTRONICS_LD1117DT33CTRSTMICROELECTRONICS_LD1117DT50CTR_0_2"/>
-<part name="C8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="10uF"/>
-<part name="C10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="0.1uF"/>
-<part name="U$10" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$47" library="microbuilder" deviceset="GND" device=""/>
 <part name="5V_BUCK_OUT" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="1X4" device="-BIG" package3d_urn="urn:adsk.eagle:package:6240658/1"/>
 <part name="GND" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="1X4" device="-BIG" package3d_urn="urn:adsk.eagle:package:6240658/1"/>
@@ -11389,6 +11379,9 @@ Created by Upverter.com</description>
 <part name="EMMC_DISABLE_N" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="1X2" device="-3.5MM" package3d_urn="urn:adsk.eagle:package:6240635/1"/>
 <part name="U$6" library="microbuilder" deviceset="GND" device=""/>
 <part name="U$9" library="microbuilder" deviceset="GND" device=""/>
+<part name="U$11" library="microbuilder" deviceset="GND" device=""/>
+<part name="UART_M2_TX_POWER" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="1X2" device="-3.5MM" package3d_urn="urn:adsk.eagle:package:6240635/1"/>
+<part name="U$27" library="microbuilder" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -11440,6 +11433,8 @@ transmitter</text>
 <text x="543.56" y="147.32" size="1.778" layer="94">Power to ESC</text>
 <text x="482.6" y="144.78" size="1.778" layer="94">Power input from
 buck converter</text>
+<text x="566.42" y="144.78" size="1.778" layer="94">Power to telemetry
+transmitter</text>
 </plain>
 <instances>
 <instance part="U$44" gate="G$1" x="71.12" y="213.36" smashed="yes">
@@ -11493,9 +11488,6 @@ buck converter</text>
 <instance part="IMU" gate="G$1" x="81.28" y="177.8" smashed="yes" rot="MR0">
 <attribute name="NAME" x="96.52" y="196.215" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="78.74" y="195.58" size="1.778" layer="96" rot="MR0"/>
-</instance>
-<instance part="U$27" gate="G$1" x="66.04" y="170.18" smashed="yes">
-<attribute name="VALUE" x="64.516" y="167.64" size="1.27" layer="96"/>
 </instance>
 <instance part="U$28" gate="G$1" x="58.42" y="165.1" smashed="yes">
 <attribute name="VALUE" x="56.896" y="162.56" size="1.27" layer="96"/>
@@ -11934,23 +11926,6 @@ buck converter</text>
 <instance part="U$14" gate="G$1" x="317.5" y="289.56" smashed="yes">
 <attribute name="VALUE" x="315.976" y="290.576" size="1.27" layer="96"/>
 </instance>
-<instance part="1V8_M2" gate="G$0" x="314.96" y="53.34" smashed="yes">
-<attribute name="NAME" x="314.96" y="50.8" size="2.54" layer="95" align="top-left"/>
-</instance>
-<instance part="C20" gate="G$1" x="335.28" y="40.64" smashed="yes">
-<attribute name="NAME" x="336.296" y="41.275" size="1.778" layer="95"/>
-<attribute name="VALUE" x="336.296" y="36.449" size="1.778" layer="96"/>
-</instance>
-<instance part="C21" gate="G$1" x="309.88" y="40.64" smashed="yes">
-<attribute name="NAME" x="310.896" y="41.275" size="1.778" layer="95"/>
-<attribute name="VALUE" x="310.896" y="36.449" size="1.778" layer="96"/>
-</instance>
-<instance part="U$32" gate="G$1" x="322.58" y="27.94" smashed="yes">
-<attribute name="VALUE" x="321.056" y="25.4" size="1.27" layer="96"/>
-</instance>
-<instance part="U$35" gate="G$1" x="309.88" y="50.8" smashed="yes">
-<attribute name="VALUE" x="308.356" y="51.816" size="1.27" layer="96"/>
-</instance>
 <instance part="X1" gate="G$1" x="228.6" y="408.94" smashed="yes" rot="MR0">
 <attribute name="NAME" x="238.7738" y="419.7498" size="1.27173125" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="238.7824" y="396.8485" size="1.2728" layer="96" rot="MR0"/>
@@ -11983,20 +11958,6 @@ buck converter</text>
 <instance part="JP1" gate="G$1" x="109.22" y="12.7" smashed="yes" rot="R180">
 <attribute name="NAME" x="115.57" y="27.305" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="115.57" y="27.94" size="1.778" layer="96" rot="R180"/>
-</instance>
-<instance part="5V_M2" gate="G$0" x="360.68" y="53.34" smashed="yes">
-<attribute name="NAME" x="360.68" y="50.8" size="2.54" layer="95" align="top-left"/>
-</instance>
-<instance part="C8" gate="G$1" x="381" y="40.64" smashed="yes">
-<attribute name="NAME" x="382.016" y="41.275" size="1.778" layer="95"/>
-<attribute name="VALUE" x="382.016" y="36.449" size="1.778" layer="96"/>
-</instance>
-<instance part="C10" gate="G$1" x="355.6" y="40.64" smashed="yes">
-<attribute name="NAME" x="356.616" y="41.275" size="1.778" layer="95"/>
-<attribute name="VALUE" x="356.616" y="36.449" size="1.778" layer="96"/>
-</instance>
-<instance part="U$10" gate="G$1" x="368.3" y="27.94" smashed="yes">
-<attribute name="VALUE" x="366.776" y="25.4" size="1.27" layer="96"/>
 </instance>
 <instance part="U$47" gate="G$1" x="518.16" y="127" smashed="yes">
 <attribute name="VALUE" x="516.636" y="127" size="1.27" layer="96"/>
@@ -12045,8 +12006,8 @@ buck converter</text>
 <attribute name="NAME" x="424.18" y="355.6" size="1.778" layer="95"/>
 <attribute name="VALUE" x="424.18" y="292.1" size="1.778" layer="96"/>
 </instance>
-<instance part="U$51" gate="G$1" x="462.28" y="358.14" smashed="yes">
-<attribute name="VALUE" x="460.756" y="359.156" size="1.27" layer="96"/>
+<instance part="U$51" gate="G$1" x="462.28" y="368.3" smashed="yes">
+<attribute name="VALUE" x="460.756" y="369.316" size="1.27" layer="96"/>
 </instance>
 <instance part="U$52" gate="G$1" x="467.36" y="289.56" smashed="yes">
 <attribute name="VALUE" x="465.836" y="287.02" size="1.27" layer="96"/>
@@ -12103,6 +12064,13 @@ buck converter</text>
 </instance>
 <instance part="U$9" gate="G$1" x="175.26" y="340.36" smashed="yes">
 <attribute name="VALUE" x="173.736" y="337.82" size="1.27" layer="96"/>
+</instance>
+<instance part="U$11" gate="G$1" x="104.14" y="177.8" smashed="yes">
+<attribute name="VALUE" x="102.616" y="175.26" size="1.27" layer="96"/>
+</instance>
+<instance part="UART_M2_TX_POWER" gate="G$1" x="574.04" y="154.94" smashed="yes"/>
+<instance part="U$27" gate="G$1" x="566.42" y="149.86" smashed="yes">
+<attribute name="VALUE" x="564.896" y="149.86" size="1.27" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -12547,16 +12515,6 @@ buck converter</text>
 <pinref part="U$168" gate="G$1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="U$32" gate="G$1" pin="GND"/>
-<pinref part="1V8_M2" gate="G$0" pin="GND"/>
-<wire x1="322.58" y1="30.48" x2="322.58" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="C21" gate="G$1" pin="2"/>
-<wire x1="309.88" y1="35.56" x2="322.58" y2="35.56" width="0.1524" layer="91"/>
-<junction x="322.58" y="35.56"/>
-<pinref part="C20" gate="G$1" pin="2"/>
-<wire x1="335.28" y1="35.56" x2="322.58" y2="35.56" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="U$36" gate="G$1" pin="GND"/>
 <pinref part="X1" gate="G$1" pin="GND"/>
 </segment>
@@ -12567,16 +12525,6 @@ buck converter</text>
 <segment>
 <pinref part="U$46" gate="G$1" pin="GND"/>
 <pinref part="SODIMM_M2_PINOUT" gate="G$1" pin="SHIELD"/>
-</segment>
-<segment>
-<pinref part="U$10" gate="G$1" pin="GND"/>
-<pinref part="5V_M2" gate="G$0" pin="GND"/>
-<wire x1="368.3" y1="30.48" x2="368.3" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="C10" gate="G$1" pin="2"/>
-<wire x1="355.6" y1="35.56" x2="368.3" y2="35.56" width="0.1524" layer="91"/>
-<junction x="368.3" y="35.56"/>
-<pinref part="C8" gate="G$1" pin="2"/>
-<wire x1="381" y1="35.56" x2="368.3" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$47" gate="G$1" pin="GND"/>
@@ -12658,6 +12606,17 @@ buck converter</text>
 <pinref part="U$6" gate="G$1" pin="GND"/>
 <wire x1="292.1" y1="185.42" x2="289.56" y2="185.42" width="0.1524" layer="91"/>
 <wire x1="289.56" y1="185.42" x2="289.56" y2="182.88" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IMU" gate="G$1" pin="AD0/SDO"/>
+<pinref part="U$11" gate="G$1" pin="GND"/>
+<wire x1="101.6" y1="180.34" x2="104.14" y2="180.34" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="UART_M2_TX_POWER" gate="G$1" pin="2"/>
+<wire x1="568.96" y1="154.94" x2="566.42" y2="154.94" width="0.1524" layer="91"/>
+<pinref part="U$27" gate="G$1" pin="GND"/>
+<wire x1="566.42" y1="154.94" x2="566.42" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SCL_M1" class="0">
@@ -12864,14 +12823,6 @@ buck converter</text>
 <wire x1="137.16" y1="177.8" x2="139.7" y2="177.8" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C21" gate="G$1" pin="1"/>
-<pinref part="1V8_M2" gate="G$0" pin="VIN"/>
-<wire x1="309.88" y1="43.18" x2="309.88" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="309.88" y1="48.26" x2="309.88" y2="45.72" width="0.1524" layer="91"/>
-<junction x="309.88" y="45.72"/>
-<pinref part="U$35" gate="G$1" pin="VIN"/>
-</segment>
-<segment>
 <pinref part="C22" gate="G$1" pin="1"/>
 <pinref part="U$34" gate="G$1" pin="VIN"/>
 <wire x1="203.2" y1="421.64" x2="213.36" y2="421.64" width="0.1524" layer="91"/>
@@ -12903,7 +12854,7 @@ buck converter</text>
 <segment>
 <pinref part="U$51" gate="G$1" pin="VIN"/>
 <pinref part="U1" gate="G$1" pin="VCCIO"/>
-<wire x1="462.28" y1="355.6" x2="462.28" y2="350.52" width="0.1524" layer="91"/>
+<wire x1="462.28" y1="365.76" x2="462.28" y2="350.52" width="0.1524" layer="91"/>
 <wire x1="462.28" y1="350.52" x2="459.74" y2="350.52" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -12930,10 +12881,16 @@ buck converter</text>
 <segment>
 <pinref part="C18" gate="G$1" pin="1"/>
 <pinref part="3V3_OUT" gate="G$0" pin="VOUT"/>
-<wire x1="454.66" y1="81.28" x2="454.66" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="454.66" y1="81.28" x2="454.66" y2="83.82" width="0.1524" layer="91"/>
 <pinref part="U$108" gate="G$1" pin="VIN"/>
-<junction x="454.66" y="88.9"/>
 <wire x1="454.66" y1="88.9" x2="454.66" y2="83.82" width="0.1524" layer="91"/>
+<junction x="454.66" y="83.82"/>
+</segment>
+<segment>
+<pinref part="GPS" gate="G$1" pin="VCC"/>
+<wire x1="317.5" y1="287.02" x2="317.5" y2="284.48" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="284.48" x2="327.66" y2="284.48" width="0.1524" layer="91"/>
+<pinref part="U$14" gate="G$1" pin="VIN"/>
 </segment>
 </net>
 <net name="ECHO_SON0" class="0">
@@ -13261,9 +13218,9 @@ buck converter</text>
 <net name="PGEC2_M1" class="0">
 <segment>
 <pinref part="M1" gate="G$1" pin="PGEC2/AN6/OCFA/RB6"/>
-<wire x1="193.04" y1="332.74" x2="142.24" y2="332.74" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="332.74" x2="142.24" y2="327.66" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="327.66" x2="124.46" y2="327.66" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="332.74" x2="144.78" y2="332.74" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="332.74" x2="144.78" y2="327.66" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="327.66" x2="124.46" y2="327.66" width="0.1524" layer="91"/>
 <wire x1="124.46" y1="327.66" x2="124.46" y2="332.74" width="0.1524" layer="91"/>
 <wire x1="124.46" y1="332.74" x2="71.12" y2="332.74" width="0.1524" layer="91"/>
 <wire x1="71.12" y1="332.74" x2="71.12" y2="284.48" width="0.1524" layer="91"/>
@@ -13275,9 +13232,9 @@ buck converter</text>
 <net name="PGED2_M1" class="0">
 <segment>
 <pinref part="M1" gate="G$1" pin="PGED2/AN7/RB7"/>
-<wire x1="193.04" y1="330.2" x2="144.78" y2="330.2" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="330.2" x2="144.78" y2="325.12" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="325.12" x2="121.92" y2="325.12" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="330.2" x2="147.32" y2="330.2" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="330.2" x2="147.32" y2="325.12" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="325.12" x2="121.92" y2="325.12" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="325.12" x2="121.92" y2="330.2" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="330.2" x2="73.66" y2="330.2" width="0.1524" layer="91"/>
 <wire x1="73.66" y1="330.2" x2="73.66" y2="284.48" width="0.1524" layer="91"/>
@@ -13288,11 +13245,10 @@ buck converter</text>
 </net>
 <net name="9.6V-12.6V" class="0">
 <segment>
-<wire x1="474.98" y1="86.36" x2="474.98" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="474.98" y1="88.9" x2="474.98" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="474.98" y1="99.06" x2="429.26" y2="99.06" width="0.1524" layer="91"/>
 <label x="492.76" y="86.36" size="1.778" layer="95"/>
-<wire x1="505.46" y1="88.9" x2="505.46" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="505.46" y1="86.36" x2="474.98" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="505.46" y1="88.9" x2="474.98" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="C19" gate="G$1" pin="1"/>
 <pinref part="3V3_OUT" gate="G$0" pin="VIN"/>
 <wire x1="429.26" y1="81.28" x2="429.26" y2="83.82" width="0.1524" layer="91"/>
@@ -13308,27 +13264,23 @@ buck converter</text>
 <wire x1="505.46" y1="172.72" x2="525.78" y2="172.72" width="0.1524" layer="91"/>
 <wire x1="525.78" y1="172.72" x2="525.78" y2="157.48" width="0.1524" layer="91"/>
 <junction x="505.46" y="172.72"/>
-<wire x1="474.98" y1="86.36" x2="474.98" y2="0" width="0.1524" layer="91"/>
-<wire x1="474.98" y1="0" x2="347.98" y2="0" width="0.1524" layer="91"/>
-<junction x="474.98" y="86.36"/>
+<wire x1="474.98" y1="88.9" x2="474.98" y2="0" width="0.1524" layer="91"/>
+<junction x="474.98" y="88.9"/>
 <pinref part="5V_SON" gate="G$0" pin="VIN"/>
 <pinref part="C4" gate="G$1" pin="1"/>
-<wire x1="347.98" y1="0" x2="0" y2="0" width="0.1524" layer="91"/>
+<wire x1="474.98" y1="0" x2="0" y2="0" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="396.24" x2="96.52" y2="398.78" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="406.4" x2="96.52" y2="398.78" width="0.1524" layer="91"/>
 <wire x1="0" y1="0" x2="0" y2="406.4" width="0.1524" layer="91"/>
 <wire x1="0" y1="406.4" x2="96.52" y2="406.4" width="0.1524" layer="91"/>
-<pinref part="5V_M2" gate="G$0" pin="VIN"/>
-<pinref part="C10" gate="G$1" pin="1"/>
-<wire x1="355.6" y1="43.18" x2="355.6" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="355.6" y1="50.8" x2="355.6" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="355.6" y1="50.8" x2="347.98" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="347.98" y1="50.8" x2="347.98" y2="0" width="0.1524" layer="91"/>
-<junction x="347.98" y="0"/>
 <pinref part="ESC_POWER" gate="G$1" pin="1"/>
 <wire x1="546.1" y1="157.48" x2="546.1" y2="172.72" width="0.1524" layer="91"/>
 <wire x1="546.1" y1="172.72" x2="525.78" y2="172.72" width="0.1524" layer="91"/>
 <junction x="525.78" y="172.72"/>
+<junction x="96.52" y="398.78"/>
+<label x="368.3" y="0" size="1.778" layer="95"/>
+<label x="462.28" y="0" size="1.778" layer="95"/>
+<label x="0" y="187.96" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="OC1_M1" class="0">
@@ -13551,35 +13503,28 @@ buck converter</text>
 </net>
 <net name="1.8V" class="0">
 <segment>
-<pinref part="C20" gate="G$1" pin="1"/>
-<pinref part="1V8_M2" gate="G$0" pin="VOUT"/>
-<wire x1="335.28" y1="43.18" x2="335.28" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="335.28" y1="45.72" x2="335.28" y2="55.88" width="0.1524" layer="91"/>
-<junction x="335.28" y="45.72"/>
-<label x="335.28" y="48.26" size="1.778" layer="95"/>
-<wire x1="335.28" y1="55.88" x2="388.62" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="320.04" y1="55.88" x2="388.62" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="388.62" y1="55.88" x2="388.62" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="SODIMM_M2_PINOUT" gate="G$2" pin="184"/>
 <pinref part="SODIMM_M2_PINOUT" gate="G$2" pin="186"/>
 <wire x1="368.3" y1="83.82" x2="368.3" y2="81.28" width="0.1524" layer="91"/>
 <junction x="368.3" y="81.28"/>
 <wire x1="388.62" y1="81.28" x2="368.3" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="335.28" y1="55.88" x2="320.04" y2="55.88" width="0.1524" layer="91"/>
-<junction x="335.28" y="55.88"/>
 <pinref part="SODIMM_M2_PINOUT" gate="G$2" pin="183"/>
 <pinref part="SODIMM_M2_PINOUT" gate="G$2" pin="185"/>
 <wire x1="342.9" y1="83.82" x2="342.9" y2="81.28" width="0.1524" layer="91"/>
 <junction x="342.9" y="81.28"/>
 <wire x1="320.04" y1="55.88" x2="320.04" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="320.04" y1="81.28" x2="342.9" y2="81.28" width="0.1524" layer="91"/>
-</segment>
-<segment>
+<wire x1="320.04" y1="55.88" x2="320.04" y2="-5.08" width="0.1524" layer="91"/>
+<junction x="320.04" y="55.88"/>
+<wire x1="320.04" y1="-5.08" x2="-5.08" y2="-5.08" width="0.1524" layer="91"/>
 <pinref part="C6" gate="G$1" pin="1"/>
 <pinref part="1V8_OUT" gate="G$0" pin="VOUT"/>
 <wire x1="38.1" y1="185.42" x2="38.1" y2="187.96" width="0.1524" layer="91"/>
 <wire x1="38.1" y1="187.96" x2="38.1" y2="200.66" width="0.1524" layer="91"/>
 <junction x="38.1" y="187.96"/>
-<label x="33.02" y="195.58" size="1.778" layer="95"/>
+<label x="38.1" y="190.5" size="1.778" layer="95" rot="R90"/>
 <wire x1="38.1" y1="200.66" x2="43.18" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="IMU" gate="G$1" pin="VDD"/>
 <wire x1="43.18" y1="200.66" x2="50.8" y2="200.66" width="0.1524" layer="91"/>
@@ -13593,15 +13538,15 @@ buck converter</text>
 <wire x1="50.8" y1="200.66" x2="50.8" y2="193.04" width="0.1524" layer="91"/>
 <junction x="50.8" y="193.04"/>
 <junction x="50.8" y="200.66"/>
-<wire x1="50.8" y1="200.66" x2="104.14" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="200.66" x2="106.68" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="SDA_OUT_IMU" gate="G$1" pin="S"/>
 <wire x1="121.92" y1="193.04" x2="127" y2="193.04" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="193.04" x2="121.92" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="180.34" x2="104.14" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="180.34" x2="106.68" y2="180.34" width="0.1524" layer="91"/>
 <pinref part="SCL_IN_IMU" gate="G$1" pin="S"/>
-<wire x1="104.14" y1="200.66" x2="109.22" y2="200.66" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="180.34" x2="104.14" y2="200.66" width="0.1524" layer="91"/>
-<junction x="104.14" y="200.66"/>
+<wire x1="106.68" y1="200.66" x2="109.22" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="180.34" x2="106.68" y2="200.66" width="0.1524" layer="91"/>
+<junction x="106.68" y="200.66"/>
 <label x="99.06" y="200.66" size="1.778" layer="95"/>
 <label x="121.92" y="193.04" size="1.778" layer="95"/>
 <pinref part="IMU" gate="G$1" pin="!CS"/>
@@ -13611,6 +13556,12 @@ buck converter</text>
 <wire x1="43.18" y1="152.4" x2="43.18" y2="200.66" width="0.1524" layer="91"/>
 <junction x="43.18" y="200.66"/>
 <label x="43.18" y="157.48" size="1.778" layer="95" rot="R90"/>
+<wire x1="-5.08" y1="-5.08" x2="-5.08" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="-5.08" y1="200.66" x2="38.1" y2="200.66" width="0.1524" layer="91"/>
+<junction x="38.1" y="200.66"/>
+<label x="314.96" y="-5.08" size="1.778" layer="95"/>
+<label x="-5.08" y="187.96" size="1.778" layer="95" rot="R90"/>
+<label x="33.02" y="200.66" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="USB_D+_M2" class="0">
@@ -13725,6 +13676,33 @@ buck converter</text>
 </net>
 <net name="5V" class="0">
 <segment>
+<label x="381" y="50.8" size="1.778" layer="95"/>
+<pinref part="SODIMM_M2_PINOUT" gate="G$2" pin="197"/>
+<pinref part="SODIMM_M2_PINOUT" gate="G$2" pin="199"/>
+<wire x1="342.9" y1="66.04" x2="342.9" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="342.9" y1="63.5" x2="332.74" y2="63.5" width="0.1524" layer="91"/>
+<junction x="342.9" y="63.5"/>
+<wire x1="332.74" y1="63.5" x2="332.74" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="332.74" y1="58.42" x2="381" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="381" y1="58.42" x2="381" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="SODIMM_M2_PINOUT" gate="G$2" pin="198"/>
+<pinref part="SODIMM_M2_PINOUT" gate="G$2" pin="200"/>
+<wire x1="368.3" y1="66.04" x2="368.3" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="368.3" y1="63.5" x2="381" y2="63.5" width="0.1524" layer="91"/>
+<junction x="368.3" y="63.5"/>
+<wire x1="381" y1="63.5" x2="381" y2="58.42" width="0.1524" layer="91"/>
+<junction x="381" y="58.42"/>
+<wire x1="381" y1="45.72" x2="584.2" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="584.2" y1="45.72" x2="584.2" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="584.2" y1="172.72" x2="566.42" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="566.42" y1="172.72" x2="566.42" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="UART_M2_TX_POWER" gate="G$1" pin="1"/>
+<wire x1="566.42" y1="157.48" x2="568.96" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="381" y1="45.72" x2="381" y2="-2.54" width="0.1524" layer="91"/>
+<junction x="381" y="45.72"/>
+<wire x1="381" y1="-2.54" x2="-2.54" y2="-2.54" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="-2.54" x2="-2.54" y2="408.94" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="408.94" x2="129.54" y2="408.94" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="1"/>
 <pinref part="5V_SON" gate="G$0" pin="VOUT"/>
 <wire x1="121.92" y1="396.24" x2="121.92" y2="398.78" width="0.1524" layer="91"/>
@@ -13747,41 +13725,16 @@ buck converter</text>
 <pinref part="SON_0" gate="G$1" pin="1"/>
 <wire x1="111.76" y1="360.68" x2="129.54" y2="360.68" width="0.1524" layer="91"/>
 <junction x="129.54" y="360.68"/>
-<wire x1="129.54" y1="406.4" x2="129.54" y2="431.8" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="406.4" x2="129.54" y2="408.94" width="0.1524" layer="91"/>
 <junction x="129.54" y="406.4"/>
 <pinref part="U1" gate="G$1" pin="VCC"/>
+<wire x1="129.54" y1="408.94" x2="129.54" y2="431.8" width="0.1524" layer="91"/>
 <wire x1="459.74" y1="353.06" x2="459.74" y2="431.8" width="0.1524" layer="91"/>
 <wire x1="459.74" y1="431.8" x2="129.54" y2="431.8" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C8" gate="G$1" pin="1"/>
-<pinref part="5V_M2" gate="G$0" pin="VOUT"/>
-<wire x1="381" y1="43.18" x2="381" y2="45.72" width="0.1524" layer="91"/>
-<junction x="381" y="45.72"/>
-<label x="381" y="50.8" size="1.778" layer="95"/>
-<pinref part="SODIMM_M2_PINOUT" gate="G$2" pin="197"/>
-<pinref part="SODIMM_M2_PINOUT" gate="G$2" pin="199"/>
-<wire x1="342.9" y1="66.04" x2="342.9" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="342.9" y1="63.5" x2="332.74" y2="63.5" width="0.1524" layer="91"/>
-<junction x="342.9" y="63.5"/>
-<wire x1="332.74" y1="63.5" x2="332.74" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="332.74" y1="58.42" x2="381" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="381" y1="58.42" x2="381" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="SODIMM_M2_PINOUT" gate="G$2" pin="198"/>
-<pinref part="SODIMM_M2_PINOUT" gate="G$2" pin="200"/>
-<wire x1="368.3" y1="66.04" x2="368.3" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="368.3" y1="63.5" x2="381" y2="63.5" width="0.1524" layer="91"/>
-<junction x="368.3" y="63.5"/>
-<wire x1="381" y1="63.5" x2="381" y2="58.42" width="0.1524" layer="91"/>
-<junction x="381" y="58.42"/>
-</segment>
-</net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="GPS" gate="G$1" pin="VCC"/>
-<wire x1="317.5" y1="287.02" x2="317.5" y2="284.48" width="0.1524" layer="91"/>
-<wire x1="317.5" y1="284.48" x2="327.66" y2="284.48" width="0.1524" layer="91"/>
-<pinref part="U$14" gate="G$1" pin="VIN"/>
+<label x="459.74" y="375.92" size="1.778" layer="95" rot="R90"/>
+<junction x="129.54" y="408.94"/>
+<label x="375.92" y="-2.54" size="1.778" layer="95"/>
+<label x="-2.54" y="187.96" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="N$6" class="0">
@@ -14047,6 +14000,104 @@ buck converter</text>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="102,1,365.76,251.46,GND,N$2,,,,"/>
+<approved hash="102,1,271.78,345.44,VIN,AVDD_M1,,,,"/>
+<approved hash="102,1,264.16,238.76,GND,VSS1_M1,,,,"/>
+<approved hash="102,1,274.32,342.9,VIN,VDD1_M1,,,,"/>
+<approved hash="102,1,276.86,340.36,VIN,VDD2_M1,,,,"/>
+<approved hash="102,1,279.4,337.82,VIN,AVDD3_M1,,,,"/>
+<approved hash="102,1,271.78,246.38,GND,AVSS_M1,,,,"/>
+<approved hash="102,1,279.4,248.92,GND,VSS2_M1,,,,"/>
+<approved hash="102,1,289.56,251.46,GND,VSS3_M1,,,,"/>
+<approved hash="102,1,317.5,287.02,VIN,N$1,,,,"/>
+<approved hash="102,1,175.26,342.9,GND,CS_M1,,,,"/>
+<approved hash="201,1,175.26,342.9,GND,GND\, N$2\, VSS1_M1\, AVSS_M1\, VSS2_M1\, VSS3_M1\, CS_M1,,,,"/>
+<approved hash="201,1,289.56,251.46,GND,GND\, N$2\, VSS1_M1\, AVSS_M1\, VSS2_M1\, VSS3_M1\, CS_M1,,,,"/>
+<approved hash="201,1,279.4,248.92,GND,GND\, N$2\, VSS1_M1\, AVSS_M1\, VSS2_M1\, VSS3_M1\, CS_M1,,,,"/>
+<approved hash="201,1,271.78,246.38,GND,GND\, N$2\, VSS1_M1\, AVSS_M1\, VSS2_M1\, VSS3_M1\, CS_M1,,,,"/>
+<approved hash="201,1,264.16,238.76,GND,GND\, N$2\, VSS1_M1\, AVSS_M1\, VSS2_M1\, VSS3_M1\, CS_M1,,,,"/>
+<approved hash="201,1,365.76,251.46,GND,GND\, N$2\, VSS1_M1\, AVSS_M1\, VSS2_M1\, VSS3_M1\, CS_M1,,,,"/>
+<approved hash="201,1,317.5,287.02,VIN,VIN\, AVDD_M1\, VDD1_M1\, VDD2_M1\, AVDD3_M1\, N$1,,,,"/>
+<approved hash="201,1,279.4,337.82,VIN,VIN\, AVDD_M1\, VDD1_M1\, VDD2_M1\, AVDD3_M1\, N$1,,,,"/>
+<approved hash="201,1,276.86,340.36,VIN,VIN\, AVDD_M1\, VDD1_M1\, VDD2_M1\, AVDD3_M1\, N$1,,,,"/>
+<approved hash="201,1,274.32,342.9,VIN,VIN\, AVDD_M1\, VDD1_M1\, VDD2_M1\, AVDD3_M1\, N$1,,,,"/>
+<approved hash="201,1,271.78,345.44,VIN,VIN\, AVDD_M1\, VDD1_M1\, VDD2_M1\, AVDD3_M1\, N$1,,,,"/>
+<approved hash="104,1,60.96,190.5,IMU,VDDIO,1.8V,,,"/>
+<approved hash="104,1,60.96,193.04,IMU,VDD,1.8V,,,"/>
+<approved hash="202,1,101.6,185.42,IMU,AUX_CL,,,,"/>
+<approved hash="104,1,96.52,228.6,MPL3115,VDD,VIN,,,"/>
+<approved hash="104,1,96.52,226.06,MPL3115,VDDIO,VIN,,,"/>
+<approved hash="104,1,264.16,337.82,M1,VDD3,AVDD3_M1,,,"/>
+<approved hash="104,1,264.16,342.9,M1,VDD1,VDD1_M1,,,"/>
+<approved hash="104,1,264.16,340.36,M1,VDD2,VDD2_M1,,,"/>
+<approved hash="104,1,264.16,345.44,M1,AVDD,AVDD_M1,,,"/>
+<approved hash="104,1,264.16,335.28,M1,VCAP/VCORE,VCAP_VCORE_M1,,,"/>
+<approved hash="104,1,264.16,251.46,M1,VSS3,VSS3_M1,,,"/>
+<approved hash="104,1,264.16,248.92,M1,VSS2,VSS2_M1,,,"/>
+<approved hash="104,1,264.16,246.38,M1,AVSS,AVSS_M1,,,"/>
+<approved hash="104,1,264.16,243.84,M1,VSS1,VSS1_M1,,,"/>
+<approved hash="202,1,193.04,327.66,M1,AN8/!U2CTS!/C1OUT/RB8,,,,"/>
+<approved hash="202,1,193.04,325.12,M1,AN9/C2OUT/PMA7/RB9,,,,"/>
+<approved hash="202,1,193.04,322.58,M1,TMS/AN10/CVREFOUT/PMA13/RB10,,,,"/>
+<approved hash="202,1,193.04,320.04,M1,TDO/AN11/PMA12/RB11,,,,"/>
+<approved hash="202,1,193.04,317.5,M1,TCK/AN12/PMA11/RB12,,,,"/>
+<approved hash="202,1,193.04,314.96,M1,TDI/AN13/PMA10/RB13,,,,"/>
+<approved hash="202,1,193.04,312.42,M1,AN14/!U2RTS!/PMALH/PMA1/RB14,,,,"/>
+<approved hash="202,1,193.04,309.88,M1,AN15/OCFB/PMALL/PMA0/CN12/RB15,,,,"/>
+<approved hash="204,1,264.16,256.54,M1,EXP,,,,"/>
+<approved hash="104,1,429.26,83.82,3V3_OUT,VIN,9.6V-12.6V,,,"/>
+<approved hash="104,1,454.66,83.82,3V3_OUT,VOUT,VIN,,,"/>
+<approved hash="104,1,96.52,398.78,5V_SON,VIN,9.6V-12.6V,,,"/>
+<approved hash="104,1,121.92,398.78,5V_SON,VOUT,5V,,,"/>
+<approved hash="104,1,38.1,187.96,1V8_OUT,VOUT,1.8V,,,"/>
+<approved hash="104,1,335.28,45.72,1V8_M2,VOUT,1.8V,,,"/>
+<approved hash="104,1,213.36,416.56,X1,VCC,VIN,,,"/>
+<approved hash="104,1,355.6,45.72,5V_M2,VIN,9.6V-12.6V,,,"/>
+<approved hash="104,1,381,45.72,5V_M2,VOUT,5V,,,"/>
+<approved hash="104,1,459.74,350.52,U1,VCCIO,VIN,,,"/>
+<approved hash="104,1,459.74,353.06,U1,VCC,5V,,,"/>
+<approved hash="104,1,459.74,302.26,U1,AGND,GND,,,"/>
+<approved hash="202,1,419.1,342.9,U1,!RESET,,,,"/>
+<approved hash="202,1,419.1,314.96,U1,OSCI,,,,"/>
+<approved hash="202,1,419.1,320.04,U1,!RI,,,,"/>
+<approved hash="202,1,419.1,325.12,U1,!DSR,,,,"/>
+<approved hash="202,1,419.1,322.58,U1,!DCD,,,,"/>
+<approved hash="202,1,419.1,330.2,U1,!CTS,,,,"/>
+<approved hash="204,1,459.74,297.18,U1,EXP,,,,"/>
+<approved hash="104,1,248.92,388.62,Y1,VDD,VIN,,,"/>
+<approved hash="204,1,518.16,350.52,PIC32_USB,VBUS,,,,"/>
+<approved hash="204,1,457.2,180.34,RASPBERRY_PI_USB,VBUS,,,,"/>
+<approved hash="209,1,193.04,342.9,CS_M1,,,,,"/>
+<approved hash="106,1,193.04,342.9,CS_M1,,,,,"/>
+<approved hash="106,1,175.26,342.9,CS_M1,,,,,"/>
+<approved hash="106,1,327.66,284.48,N$1,,,,,"/>
+<approved hash="106,1,317.5,287.02,N$1,,,,,"/>
+<approved hash="108,1,96.52,398.78,9.6V-12.6V,,,,,"/>
+<approved hash="108,1,355.6,45.72,9.6V-12.6V,,,,,"/>
+<approved hash="110,1,182.88,294.64,INT_IMU,MCLR_M1,,,,"/>
+<approved hash="112,1,66.04,172.72,,,,,,"/>
+<approved hash="111,1,139.7,271.78,U2TX_M1,,,,,"/>
+<approved hash="111,1,274.32,345.44,AVDD_M1,,,,,"/>
+<approved hash="111,1,276.86,342.9,VDD1_M1,,,,,"/>
+<approved hash="111,1,279.4,340.36,VDD2_M1,,,,,"/>
+<approved hash="111,1,182.88,294.64,INT_IMU,,,,,"/>
+<approved hash="111,1,228.6,177.8,GPIO2_M2,,,,,"/>
+<approved hash="111,1,228.6,162.56,GPIO6_M2,,,,,"/>
+<approved hash="111,1,228.6,147.32,MOSI_M2,,,,,"/>
+<approved hash="111,1,228.6,129.54,GPIO12_M2,,,,,"/>
+<approved hash="111,1,228.6,121.92,GPIO14_M2,,,,,"/>
+<approved hash="111,1,228.6,114.3,GPIO16_M2,,,,,"/>
+<approved hash="111,1,228.6,106.68,GPIO18_M2,,,,,"/>
+<approved hash="111,1,228.6,99.06,GPIO20_M2,,,,,"/>
+<approved hash="111,1,325.12,106.68,USB_D+_M2,,,,,"/>
+<approved hash="111,1,180.34,276.86,U2RX_M1,,,,,"/>
+<approved hash="111,1,175.26,340.36,SCK_M2,,,,,"/>
+<approved hash="113,1,342.9,273.901,GPS,,,,,"/>
+<approved hash="113,1,99.6195,43.4061,MOT_SERVO_RX_PINOUT,,,,,"/>
+<approved hash="113,1,346.643,325.346,PWM_OUTPUT_MOT_SERVO,,,,,"/>
+<approved hash="113,1,111.523,15.1172,JP1,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>
