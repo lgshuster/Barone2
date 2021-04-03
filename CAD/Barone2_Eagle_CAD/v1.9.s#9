@@ -11477,6 +11477,8 @@ Created by Upverter.com</description>
 <part name="PIC32_USB" library="DX07S016JA1R1500" deviceset="DX07S016JA1R1500" device=""/>
 <part name="RASPBERRY_PI_USB" library="DX07S016JA1R1500" deviceset="DX07S016JA1R1500" device=""/>
 <part name="U$18" library="microbuilder" deviceset="VIN" device="" value="3.3V"/>
+<part name="ESC_POWER" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="1X2" device="-3.5MM" package3d_urn="urn:adsk.eagle:package:6240635/1"/>
+<part name="U$26" library="microbuilder" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12189,6 +12191,10 @@ Magnetometer data                       SHOULD</text>
 <instance part="U$18" gate="G$1" x="304.8" y="289.56" smashed="yes">
 <attribute name="VALUE" x="303.276" y="290.576" size="1.27" layer="96"/>
 </instance>
+<instance part="ESC_POWER" gate="G$1" x="551.18" y="154.94" smashed="yes"/>
+<instance part="U$26" gate="G$1" x="543.56" y="149.86" smashed="yes">
+<attribute name="VALUE" x="542.036" y="149.86" size="1.27" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -12730,6 +12736,12 @@ Magnetometer data                       SHOULD</text>
 <junction x="520.7" y="332.74"/>
 <pinref part="PIC32_USB" gate="G$1" pin="GND"/>
 <pinref part="PIC32_USB" gate="G$1" pin="SHIELD"/>
+</segment>
+<segment>
+<pinref part="ESC_POWER" gate="G$1" pin="2"/>
+<wire x1="546.1" y1="154.94" x2="543.56" y2="154.94" width="0.1524" layer="91"/>
+<pinref part="U$26" gate="G$1" pin="GND"/>
+<wire x1="543.56" y1="154.94" x2="543.56" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SCL_M1" class="0">
@@ -13458,6 +13470,10 @@ Magnetometer data                       SHOULD</text>
 <wire x1="355.6" y1="50.8" x2="347.98" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="347.98" y1="50.8" x2="347.98" y2="0" width="0.1524" layer="91"/>
 <junction x="347.98" y="0"/>
+<pinref part="ESC_POWER" gate="G$1" pin="1"/>
+<wire x1="546.1" y1="157.48" x2="546.1" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="546.1" y1="172.72" x2="525.78" y2="172.72" width="0.1524" layer="91"/>
+<junction x="525.78" y="172.72"/>
 </segment>
 </net>
 <net name="OC1_M1" class="0">
