@@ -18,6 +18,7 @@
 //returns: SUCCESS Or ERROR if arrays do not match dimensions, 
 //columns(x) and rows(y) are passed by reference and are set when the function is done,
 //need to manually put data from pointer *m3 into 2D array after
+
 int Matrix_Multiply(void *m1, int x1, int y1, void *m2, int x2, int y2, void *m3, int *x3, int *y3)
 {
     if ((x1 != y2) || (x2 != y1)) {
@@ -41,6 +42,7 @@ int Matrix_Multiply(void *m1, int x1, int y1, void *m2, int x2, int y2, void *m3
 
 //inputs: 2D array address with columns(x) and rows(y), scalar double value s to multiply by
 //returns: SUCCESS
+
 int Matrix_ScalarMultiply(void *m, int x, int y, double s)
 {
     double *matrix = (double *) m;
@@ -54,15 +56,51 @@ int Matrix_ScalarMultiply(void *m, int x, int y, double s)
 //inputs: 2D array address with columns(x) and rows(y), matrix 2's address is 1D
 //returns: SUCCESS Or ERROR if array is not square
 //need to manually put data from pointer *matrix2 into 2D array after
+
 int Matrix_Inverse(void *matrix1, int x, int y, void *matrix2)
 {
-    
+    double *m = (double *) matrix1; //turns void pointer back into double array pointer
+    double *m1 = (double *) matrix2;
+    double matrix[y][x];
+    int i, j;
+    for (i = 0; i < y; i++) {
+        for (j = 0; j < x; j++) {
+            matrix[i][j] = m[x * i + j]; //inputs matrix values back into 2D array
+        }
+    }
+    //from here matrix[y][x] is used
+    double determinant = Matrix_Determinant(&matrix, x, y);
+    printf("%f\n", determinant);
+    int k = 0;
+    for (i = 0; i < y; i++) {
+        for (j = 0; j < x; j++) {
+            if (k % 2 == 1) {
+                matrix[i][j] = matrix[i][j] * -1; //turns matrix into cofactor
+            }
+            k++;
+        }
+    }
+    double inverse[y][x];
+    for (i = 0; i < y; i++) {
+        for (j = 0; j < x; j++) {
+            inverse[i][j] = matrix[j][i] / determinant; //transposes matrix and divides by determinant
+        }
+    }
+
+    for (i = 0; i < y; i++) {
+        for (j = 0; j < x; j++) {
+            m1[x * i + j] = inverse[i][j];
+        }
+    }
+    matrix2 = &inverse;
+    return (SUCCESS);
 }
 
 //inputs: 2 2D array addresses with their columns(x) and rows(y), matrix 3's is 1D and size variable addresses are passed by reference
 //returns: SUCCESS Or ERROR if arrays do not match dimensions, 
 //matrix 3 columns(x) and rows(y) are passed by reference and are set when the function is done,
 //need to manually put data from pointer *m3 into 2D array after
+
 int Matrix_Add(void *m1, int x1, int y1, void *m2, int x2, int y2, void *m3, int *x3, int *y3)
 {
     if ((x1 != x2) || (y1 != y2)) {
@@ -83,6 +121,7 @@ int Matrix_Add(void *m1, int x1, int y1, void *m2, int x2, int y2, void *m3, int
 
 //inputs: 2D array address, x = number of columns, y = number of rows
 //returns: determinant or 0 if not a square matrix
+
 double Matrix_Determinant(void *matrix, int x, int y)
 {
     double *ma = (double *) matrix; //turns void pointer back into double array pointer
@@ -101,8 +140,7 @@ double Matrix_Determinant(void *matrix, int x, int y)
 
     if (row_size != column_size) { //returns 0 for error if matrix is not square
         return (0);
-    }
-    else if (row_size == 1) //returns single number if only one element
+    } else if (row_size == 1) //returns single number if only one element
         return (B[0][0]);
     else if (row_size == 2) //simple 2x2 matrix calculation
         return (B[0][0] * B[1][1] - B[1][0] * B[0][1]);
@@ -136,7 +174,33 @@ double Matrix_Determinant(void *matrix, int x, int y)
         return sum;
     }
 }
+#define MATRIX_INVERSE_TEST
+#ifdef MATRIX_INVERSE_TEST
 
+int main(void)
+{
+    BOARD_Init();
+    double matrix[4][4] = {//defines 1st matrix, edit for testing
+        {1, 2, 3, 4},
+        {4, 5, 6, 7},
+        {8, 11, 10, 11},
+        {12, 13, 19, 15}
+    };
+    int x = sizeof (matrix[0]) / DOUBLE_LENGTH; //needs columns and row number for function
+    int y = sizeof (matrix) / x / DOUBLE_LENGTH;
+    double inverse[16];
+    double success = Matrix_Inverse(&matrix, x, y, &inverse);
+    int i, j;
+    for (i = 0; i < 4; i++) { //prints inverse array of original
+        for (j = 0; j < 4; j++) {
+            printf("%f", inverse[4 * i + j]);
+        }
+        printf("\n");
+    }
+    BOARD_End();
+    return (0);
+}
+#endif
 //#define MATRIX_DETERMINANT_TEST
 #ifdef MATRIX_DETERMINANT_TEST
 
@@ -206,6 +270,7 @@ int main(void)
 
 //#define MATRIX_SCALAR_MULTIPLY_TEST
 #ifdef MATRIX_SCALAR_MULTIPLY_TEST
+
 int main(void)
 {
     BOARD_Init();
