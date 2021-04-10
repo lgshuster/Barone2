@@ -14,86 +14,104 @@
 #define DOUBLE_LENGTH 8
 #define MAX_MATRIX_SIZE 24
 
-//inputs: 2 2D array addresses with their columns(x) and rows(y), matrix 3's is 1D and size variable addresses are passed by reference
-//returns: SUCCESS Or ERROR if arrays do not match dimensions, 
-//columns(x) and rows(y) are passed by reference and are set when the function is done,
-//need to manually put data from pointer *m3 into 2D array after
+//inputs: 2D array address input m1 with its columns(x) and rows(y), 
+//matrix m2 must have it's size defined before the function to be opposite of m1
+//returns: SUCCESS
 
-int Matrix_Multiply(void *m1, int x1, int y1, void *m2, int x2, int y2, void *m3, int *x3, int *y3)
+int Matrix_Transpose(void *m1, int x, int y, void *m2)
 {
-    if ((x1 != y2) || (x2 != y1)) {
+    double *min = (double *) m1; //turns 2D pointers into 1D pointers
+    double *mout = (double *) m2;
+
+    int i, j;
+    for (i = 0; i < x; i++) {
+        for (j = 0; j < y; j++) {
+            mout[y * i + j] = min[j * x + i]; //transposes min matrix into mout matrix
+        }
+    }
+    return (SUCCESS);
+}
+
+//inputs: 2 2D array addresses 1 and 2 with their columns(x) and rows(y), 
+//matrix 3 is also 2D whose size must be determined before function
+//returns: SUCCESS Or ERROR if arrays do not match dimensions, 
+
+int Matrix_Multiply(void *m1, int x1, int y1, void *m2, int x2, int y2, void *m3)
+{
+    if ((x1 != y2) || (x2 != y1)) { //error if matrix 1 and 2 aren't compatible
         return (ERROR);
     }
-    double *matrix1 = (double *) m1; //turns void pointers back into double array pointers
-    double *matrix2 = (double *) m2; //only 1 dimensional to simplify turning back into 2D later
+    double *matrix1 = (double *) m1; //turns void pointers back into 1D double array pointers
+    double *matrix2 = (double *) m2; //
     double *matrix3 = (double *) m3;
+
     int i, j;
     for (i = 0; i < (y1 * x2); i++) { //puts new matrix values into 1D array for matrix 3
         matrix3[i] = 0;
-        for (j = 0; j < y2; j++) {
+        for (j = 0; j < y2; j++) { //must multiply each row of matrix 1 by each row in matrix 2
             matrix3[i] += matrix1[j + ((i / y1) * x1)] * matrix2[j * x2 + (i % x2)];
-            //            printf("%f %f %f\n", matrix3[i], matrix1[j + ((i / y1) * x1)], matrix2[j * x2 + (i % x2)]);
         }
     }
-    *x3 = y1; //puts boundaries of new matrix 3 into address of variable passed
-    *y3 = x2;
     return (SUCCESS);
 }
 
-//inputs: 2D array address with columns(x) and rows(y), scalar double value s to multiply by
+//inputs: 2D array address with columns(x) and rows(y), scalar double value s to multiply by, 
+//also output matrix mout must be defined before function
 //returns: SUCCESS
 
-int Matrix_ScalarMultiply(void *m, int x, int y, double s)
+int Matrix_ScalarMultiply(void *m, int x, int y, double s, void *mout)
 {
     double *matrix = (double *) m;
+    double *matrixout = (double *) mout;
     int i;
     for (i = 0; i < (y * x); i++) {// multiplies each value in array by scalar value
-        matrix[i] = matrix[i] * s; //does this in 1 dimension, but it loops through the rows automatically
+        matrixout[i] = matrix[i] * s; //does this in 1 dimension, but it loops through the rows automatically
     }
     return (SUCCESS);
 }
 
-//inputs: 2D array address with columns(x) and rows(y), matrix 2's address is 1D
+//inputs: 2D array address matrix 1 with columns(x) and rows(y), 
+//matrix 2 must have it's size defined to be the same as matrix 1 before function
 //returns: SUCCESS Or ERROR if array is not square
-//need to manually put data from pointer *matrix2 into 2D array after
 
 int Matrix_Inverse(void *matrix1, int x, int y, void *matrix2)
 {
-    double *m = (double *) matrix1; //turns void pointer back into double array pointer
-    double *m2 = (double *) matrix2;
-    double matrix[y][x];
-    int i, j;
-    for (i = 0; i < y; i++) {
-        for (j = 0; j < x; j++) {
-            matrix[i][j] = m[x * i + j]; //inputs matrix values back into 2D array
-        }
+    if (x != y) { //error if matrix is not square
+        return (ERROR);
     }
-    //from here matrix[y][x] is used
-    double determinant = Matrix_Determinant(&matrix, x, y);
+    double *min = (double *) matrix1; //turns 2D input pointers into 1D pointers
+    double *mout = (double *) matrix2;
+
+    double det = Matrix_Determinant(min, x, y); //finds the determinant
+
+    int i, j;
     int k = 0;
-    for (i = 0; i < y; i++) {
+    double mtemp[y][x];
+    for (i = 0; i < y; i++) { //creates 2D cofactor matrix of min into mtemp
         for (j = 0; j < x; j++) {
             if (k % 2 == 1) {
-                matrix[i][j] = matrix[i][j] * -1; //turns matrix into cofactor
+                mtemp[i][j] = min[i * x + j] * -1;
+            } else {
+                mtemp[i][j] = min[i * x + j];
             }
             k++;
         }
     }
     for (i = 0; i < y; i++) {
         for (j = 0; j < x; j++) {
-            m2[x * i + j] = matrix[j][i] / determinant; //transposes matrix and divides by determinant
+            mout[x * i + j] = mtemp[j][i] / det; //transposes cofactor matrix and divides by determinant
         }
     }
     return (SUCCESS);
 }
 
-//inputs: 2 2D array addresses with their columns(x) and rows(y), matrix 3's is 1D
+//inputs: 2 2D array addresses with their columns(x) and rows(y), matrix 3 address as well, 
+//whose size must be defined before the function
 //returns: SUCCESS Or ERROR if arrays do not match dimensions, 
-//need to manually put data from pointer *m3 into 2D array after
 
-int Matrix_Add(void *m1, int x, int y, void *m2, void *m3)
+int Matrix_Add(void *m1, int x1, int y1, void *m2, int x2, int y2, void *m3)
 {
-    if ((x != x) || (y != y)) {
+    if ((x1 != x2) || (y1 != y2)) {
         return (ERROR);
     }
     double *matrix1 = (double *) m1; //turns void pointers back into double array pointers
@@ -101,7 +119,7 @@ int Matrix_Add(void *m1, int x, int y, void *m2, void *m3)
     double *matrix3 = (double *) m3;
 
     int i;
-    for (i = 0; i < (y * x); i++) { //puts new matrix values into 1D array for matrix 3
+    for (i = 0; i < (y1 * x1); i++) { //puts new matrix values into 1D array for matrix 3
         matrix3[i] = matrix1[i] + matrix2[i];
     }
     return (SUCCESS);
@@ -112,6 +130,9 @@ int Matrix_Add(void *m1, int x, int y, void *m2, void *m3)
 
 double Matrix_Determinant(void *matrix, int x, int y)
 {
+    if (x != y) {
+        return (0);
+    }
     double *ma = (double *) matrix; //turns void pointer back into double array pointer
     double B[y][x];
     int i, j;
@@ -163,13 +184,79 @@ double Matrix_Determinant(void *matrix, int x, int y)
     }
 }
 
+//inputs: 3 1x3 array addresses, m3 is the output matrix
+//returns: SUCCESS
+int Matrix_CrossProduct(double m1[1][3], double m2[1][3], double m3[1][3])
+{
+    m3[0][0] = m1[0][1] * m2[0][2] - m1[0][2] * m2[0][1];
+    m3[0][1] = m1[0][0] * m2[0][2] - m1[0][2] * m2[0][0];
+    m3[0][2] = m1[0][0] * m2[0][1] - m1[0][1] * m2[0][0];
+    return (SUCCESS);
+}
+//#define MATRIX_CROSSPRODUCT_TEST
+#ifdef MATRIX_CROSSPRODUCT_TEST
+
+int main(void)
+{
+    BOARD_Init();
+    double matrix1[1][3] = {//defines matrix1, edit for testing
+        {0, 1, 2}
+    };
+    double matrix2[1][3] = {//defines matrix2, edit for testing
+        {3, 4, 5}
+    };
+    double matrix3[1][3]; //output matrix 3
+
+    int success = Matrix_CrossProduct(matrix1, matrix2, matrix3);
+    
+    int i;
+    for (i = 0; i < 3; i++) {
+        printf("%f", matrix3[0][i]); //prints cross product
+    }
+    BOARD_End();
+    return (0);
+}
+#endif
+
+
+//#define MATRIX_TRANSPOSE_TEST
+#ifdef MATRIX_TRANSPOSE_TEST
+
+int main(void)
+{
+    BOARD_Init();
+    double matrix[4][4] = {//defines matrix, edit for testing
+        {0, 1, 2, 3},
+        {4, 5, 6, 7},
+        {8, 9, 10, 11},
+        {12, 13, 14, 15}
+    };
+    int x = sizeof (matrix[0]) / DOUBLE_LENGTH; //x = number of columns
+    int y = sizeof (matrix) / x / DOUBLE_LENGTH; //y = number of rows
+
+    double transpose[x][y]; //transpose x and y dimensions switch
+    double success = Matrix_Transpose(&matrix, x, y, &transpose); //inputs array addresses and dimensions
+
+    int i, j;
+    for (i = 0; i < x; i++) { //prints transpose of original matrix
+        for (j = 0; j < y; j++) {
+            printf("%f ", transpose[i][j]);
+        }
+        printf("\n");
+    }
+
+    BOARD_End();
+    return (0);
+}
+#endif
+
 //#define MATRIX_INVERSE_TEST
 #ifdef MATRIX_INVERSE_TEST
 
 int main(void)
 {
     BOARD_Init();
-    double matrix[4][4] = {//defines 1st matrix, edit for testing
+    double matrix[4][4] = {//defines matrix, edit for testing
         {1, 2, 3, 4},
         {4, 5, 6, 7},
         {8, 11, 10, 11},
@@ -177,12 +264,14 @@ int main(void)
     };
     int x = sizeof (matrix[0]) / DOUBLE_LENGTH; //needs columns and row number for function
     int y = sizeof (matrix) / x / DOUBLE_LENGTH;
-    double inverse[16];
-    double success = Matrix_Inverse(&matrix, x, y, &inverse);
+
+    double inverse[y][x]; //needs to define new 2D matrix with the same size to input values
+    double success = Matrix_Inverse(&matrix, x, y, &inverse); //inputs array addresses and dimensions
+
     int i, j;
-    for (i = 0; i < 4; i++) { //prints inverse array of original
+    for (i = 0; i < 4; i++) { //prints new inverse matrix
         for (j = 0; j < 4; j++) {
-            printf("%f", inverse[4 * i + j]);
+            printf("%f", inverse[i][j]);
         }
         printf("\n");
     }
@@ -197,7 +286,7 @@ int main(void)
 int main(void)
 {
     BOARD_Init();
-    double matrix[4][4] = {//defines 1st matrix, edit for testing
+    double matrix[4][4] = {//defines matrix, edit for testing
         {1, 0, 0, 0},
         {0, 1, 0, 0},
         {0, 0, 1, 0},
@@ -206,8 +295,8 @@ int main(void)
     int x = sizeof (matrix[0]) / DOUBLE_LENGTH; //needs columns and row number for function
     int y = sizeof (matrix) / x / DOUBLE_LENGTH;
 
-    double det1 = Matrix_Determinant(&matrix, x, y);
-    printf("%f", det1); //prints determinant of matrix
+    double det = Matrix_Determinant(&matrix, x, y);
+    printf("%f", det); //prints determinant of matrix
     BOARD_End();
     return (0);
 }
@@ -234,20 +323,17 @@ int main(void)
     int columns2 = (sizeof (matrix2[0])) / DOUBLE_LENGTH; //finds size of 2nd matrix
     int rows2 = (sizeof (matrix2)) / columns2 / DOUBLE_LENGTH;
 
-    //    printf("%d %d\n%d %d\n", columns1, rows1, columns2, rows2);
 
-    double matrix3temp[MAX_MATRIX_SIZE * MAX_MATRIX_SIZE]; //defines third matrix, 1D for sizing, max size to determine rows/columns later
-    int columns3; //empty variables to input size of third matrix
-    int rows3;
+    int columns3 = columns2;
+    int rows3 = rows1;
+    double matrix3[rows3][columns3]; //defines third matrix and its size based on matrix 1 and 2
 
-    int success = Matrix_Multiply(&matrix1, columns1, rows1, &matrix2, columns2, rows2, &matrix3temp, &columns3, &rows3);
-    //    printf("\n%d", success);
+    //2d array addresses matrix 1 and 2 are inputted along with their sizes, also address for matrix 3
+    int success = Matrix_Multiply(&matrix1, columns1, rows1, &matrix2, columns2, rows2, &matrix3);
 
-    double matrix3[rows3][columns3];
     int i, j;
-    for (i = 0; i < rows3; i++) { //puts 1D values for matrix 3 into new 2D matrix 3
+    for (i = 0; i < rows3; i++) { //prints matrix3
         for (j = 0; j < columns3; j++) {
-            matrix3[i][j] = matrix3temp[i * rows3 + j];
             printf("%f ", matrix3[i][j]);
         }
         printf("\n");
@@ -268,15 +354,19 @@ int main(void)
         {0, 1, 2},
         {3, 4, 5}
     };
+
     int columns = (sizeof (matrix[0])) / DOUBLE_LENGTH; //finds size of matrix
     int rows = (sizeof (matrix)) / columns / DOUBLE_LENGTH;
-    double scalar = 2;
-    int success = Matrix_ScalarMultiply(&matrix, columns, rows, scalar);
+
+    double scalar = 2; //defines scalar to multiply by
+    double matrixout[rows][columns]; //creates new matrix based on original matrix
+
+    int success = Matrix_ScalarMultiply(&matrix, columns, rows, scalar, &matrixout);
 
     int i, j;
-    for (i = 0; i < rows; i++) { //prints array
+    for (i = 0; i < rows; i++) { //puts new matrix
         for (j = 0; j < columns; j++) {
-            printf("%f ", matrix[i][j]);
+            printf("%f ", matrixout[i][j]);
         }
         printf("\n");
     }
@@ -296,24 +386,25 @@ int main(void)
         {3, 4, 5},
         {6, 7, 8}
     };
-    int columns = (sizeof (matrix1[0])) / DOUBLE_LENGTH; //finds size of matrix
-    int rows = (sizeof (matrix1)) / columns / DOUBLE_LENGTH;
+    int columns1 = (sizeof (matrix1[0])) / DOUBLE_LENGTH; //finds size of matrix1
+    int rows1 = (sizeof (matrix1)) / columns1 / DOUBLE_LENGTH;
 
     double matrix2[3][3] = {//defines 2nd matrix, edit for testing
         {9, 10, 11},
         {12, 13, 14},
         {15, 16, 17}
     };
+    int columns2 = (sizeof (matrix2[0])) / DOUBLE_LENGTH; //finds size of matrix2
+    int rows2 = (sizeof (matrix2)) / columns2 / DOUBLE_LENGTH;
 
-    double matrix3temp[MAX_MATRIX_SIZE * MAX_MATRIX_SIZE]; //defines third matrix, 1D for sizing, max size to determine rows/columns later
+    double matrix3[rows2][columns2]; //defines new matrix same size as the previous ones
 
-    int success = Matrix_Add(&matrix1, columns, rows, &matrix2, &matrix3temp);
+    //inputs 2d array addresses matrix 1 and 2, along with their sizes, and address to 1D matrix3temp
+    int success = Matrix_Add(&matrix1, columns1, rows1, &matrix2, columns2, rows2, &matrix3);
 
-    double matrix3[rows][columns];
     int i, j;
-    for (i = 0; i < rows; i++) { //puts 1D values for matrix 3 into new 2D matrix 3
-        for (j = 0; j < columns; j++) {
-            matrix3[i][j] = matrix3temp[i * rows + j];
+    for (i = 0; i < rows1; i++) { //prints new matrix
+        for (j = 0; j < columns1; j++) {
             printf("%f ", matrix3[i][j]);
         }
         printf("\n");
