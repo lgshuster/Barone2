@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project>                                  
-  <executable name="dist/default/debug/Barone2Jeremy.X.debug.elf">                 
+  <executable name="dist/default/production/Barone2Jeremy.X.production.elf">                 
     <memory name="program">                 
       <units>bytes</units>                 
       <length>531968</length>                 
-      <used>19420</used>                     
-      <free>512548</free>                     
+      <used>10336</used>                     
+      <free>521632</free>                     
     </memory>                              
     <memory name="data">              
       <units>bytes</units>                 
       <length>32768</length>                 
-      <used>872</used>                     
-      <free>31896</free>                     
+      <used>84</used>                     
+      <free>32684</free>                     
     </memory>                              
   </executable>                            
 </project>                                 

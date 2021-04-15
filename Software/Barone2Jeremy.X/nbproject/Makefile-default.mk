@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=BOARD.c MatrixMath.c
+SOURCEFILES_QUOTED_IF_SPACED=BOARD.c MatrixMath.c Height.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/BOARD.o ${OBJECTDIR}/MatrixMath.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/BOARD.o.d ${OBJECTDIR}/MatrixMath.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/BOARD.o ${OBJECTDIR}/MatrixMath.o ${OBJECTDIR}/Height.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/BOARD.o.d ${OBJECTDIR}/MatrixMath.o.d ${OBJECTDIR}/Height.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/BOARD.o ${OBJECTDIR}/MatrixMath.o
+OBJECTFILES=${OBJECTDIR}/BOARD.o ${OBJECTDIR}/MatrixMath.o ${OBJECTDIR}/Height.o
 
 # Source Files
-SOURCEFILES=BOARD.c MatrixMath.c
+SOURCEFILES=BOARD.c MatrixMath.c Height.c
 
 
 
@@ -119,6 +119,12 @@ ${OBJECTDIR}/MatrixMath.o: MatrixMath.c  .generated_files/678187ca979955633ac50b
 	@${RM} ${OBJECTDIR}/MatrixMath.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/MatrixMath.o.d" -o ${OBJECTDIR}/MatrixMath.o MatrixMath.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
+${OBJECTDIR}/Height.o: Height.c  .generated_files/c7a1897a69d3a4b3edf1102c7296321689b00a6.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Height.o.d 
+	@${RM} ${OBJECTDIR}/Height.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/Height.o.d" -o ${OBJECTDIR}/Height.o Height.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
 else
 ${OBJECTDIR}/BOARD.o: BOARD.c  .generated_files/fd4ddc32c2e2807e63e104f4c81c55e55dbf32d1.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
 	@${MKDIR} "${OBJECTDIR}" 
@@ -131,6 +137,12 @@ ${OBJECTDIR}/MatrixMath.o: MatrixMath.c  .generated_files/396f5e6b68d9b98dced816
 	@${RM} ${OBJECTDIR}/MatrixMath.o.d 
 	@${RM} ${OBJECTDIR}/MatrixMath.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/MatrixMath.o.d" -o ${OBJECTDIR}/MatrixMath.o MatrixMath.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
+${OBJECTDIR}/Height.o: Height.c  .generated_files/2d9e03fc528b2dd372871fd75d79e844a0478ea3.flag .generated_files/9c38dd73fa47c8727ca672a3ac38932765b77050.flag
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Height.o.d 
+	@${RM} ${OBJECTDIR}/Height.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/Height.o.d" -o ${OBJECTDIR}/Height.o Height.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 endif
 
