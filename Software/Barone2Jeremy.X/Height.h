@@ -3,6 +3,8 @@
 
 double Track_Height(double measurement);
 
-int Update_Values(double scalar);
+double Track_Height_Front(double measurement1, double measurement2);
+
+int Update_Values(double scalar, int row);
 
 #endif
