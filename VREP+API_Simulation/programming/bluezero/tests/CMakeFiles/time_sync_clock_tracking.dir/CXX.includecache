@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/tests/time_sync_clock_tracking.cpp
+b0/utils/time_sync.h
+-
+boost/thread.hpp
+-
+boost/lexical_cast.hpp
+-
+iostream
+-
+string
+-
+
+include/b0/b0.h
+b0/config.h
+-
+b0/logger/level.h
+-
+memory
+-
+string
+-
+vector
+-
+
+include/b0/config.h
+
+include/b0/logger/level.h
+string
+-
+
+include/b0/utils/time_sync.h
+cstdint
+-
+boost/thread/mutex.hpp
+-
+b0/b0.h
+-
+

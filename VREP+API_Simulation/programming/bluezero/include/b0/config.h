@@ -1,0 +1,7 @@
+#define HAVE_POSIX_SIGNALS
+#define HAVE_BOOST_PROCESS
+/* #undef HAVE_PTHREAD_SETNAME_1 */
+#define HAVE_PTHREAD_SETNAME_2
+/* #undef HAVE_PTHREAD_SETNAME_3 */
+#define ZLIB_FOUND
+/* #undef LZ4_FOUND */

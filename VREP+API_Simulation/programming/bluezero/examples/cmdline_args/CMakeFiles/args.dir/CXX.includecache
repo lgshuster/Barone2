@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/examples/cmdline_args/args.cpp
+b0/b0.h
+-
+iostream
+-
+
+include/b0/b0.h
+b0/config.h
+-
+b0/logger/level.h
+-
+memory
+-
+string
+-
+vector
+-
+
+include/b0/config.h
+
+include/b0/logger/level.h
+string
+-
+

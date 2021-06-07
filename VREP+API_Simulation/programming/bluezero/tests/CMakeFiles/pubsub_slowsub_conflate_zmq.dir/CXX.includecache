@@ -1,0 +1,54 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/tests/pubsub_slowsub_zmq.cpp
+atomic
+-
+iostream
+-
+boost/format.hpp
+-
+boost/lexical_cast.hpp
+-
+boost/thread.hpp
+-
+zmq.hpp
+-
+
+include/cppzmq/zmq.hpp
+zmq.h
+-
+cassert
+-
+cstring
+-
+algorithm
+-
+exception
+-
+iomanip
+-
+iterator
+-
+sstream
+-
+string
+-
+vector
+-
+chrono
+-
+tuple
+-
+functional
+-
+unordered_map
+-
+memory
+-
+

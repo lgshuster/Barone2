@@ -1,0 +1,128 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_498d2/fast && /usr/bin/make -f CMakeFiles/cmTC_498d2.dir/build.make CMakeFiles/cmTC_498d2.dir/build
+make[1]: Entering directory '/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_498d2.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_498d2.dir/src.c.o   -c "/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp/src.c"
+Linking C executable cmTC_498d2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_498d2.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_498d2.dir/src.c.o  -o cmTC_498d2 
+/usr/bin/ld: CMakeFiles/cmTC_498d2.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_498d2.dir/build.make:87: cmTC_498d2] Error 1
+make[1]: Leaving directory '/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_498d2/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ea9cb/fast && /usr/bin/make -f CMakeFiles/cmTC_ea9cb.dir/build.make CMakeFiles/cmTC_ea9cb.dir/build
+make[1]: Entering directory '/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ea9cb.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_ea9cb.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ea9cb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea9cb.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_ea9cb.dir/CheckFunctionExists.c.o  -o cmTC_ea9cb  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_ea9cb.dir/build.make:87: cmTC_ea9cb] Error 1
+make[1]: Leaving directory '/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_ea9cb/fast] Error 2
+
+
+
+Performing C++ SOURCE FILE Test HAVE_PTHREAD_SETNAME_1 failed with the following output:
+Change Dir: /mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ff4d2/fast && /usr/bin/make -f CMakeFiles/cmTC_ff4d2.dir/build.make CMakeFiles/cmTC_ff4d2.dir/build
+make[1]: Entering directory '/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ff4d2.dir/src.cxx.o
+/usr/bin/c++    -DHAVE_PTHREAD_SETNAME_1 -D_GNU_SOURCE -Werror=implicit-function-declaration -pthread   -o CMakeFiles/cmTC_ff4d2.dir/src.cxx.o -c "/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp/src.cxx"
+cc1plus: warning: ‘-Werror=’ argument ‘-Werror=implicit-function-declaration’ is not valid for C++
+/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp/src.cxx: In function ‘int main()’:
+/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp/src.cxx:5:24: error: invalid conversion from ‘const char*’ to ‘pthread_t’ {aka ‘long unsigned int’} [-fpermissive]
+    5 |     pthread_setname_np("foo");
+      |                        ^~~~~
+      |                        |
+      |                        const char*
+/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp/src.cxx:5:29: error: too few arguments to function ‘int pthread_setname_np(pthread_t, const char*)’
+    5 |     pthread_setname_np("foo");
+      |                             ^
+In file included from /mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp/src.cxx:2:
+/usr/include/pthread.h:427:12: note: declared here
+  427 | extern int pthread_setname_np (pthread_t __target_thread, const char *__name)
+      |            ^~~~~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_ff4d2.dir/build.make:66: CMakeFiles/cmTC_ff4d2.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_ff4d2/fast] Error 2
+
+
+...and run output:
+
+Return value: 1
+Source file was:
+
+#include <pthread.h>
+int main()
+{
+    pthread_setname_np("foo");
+    return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_PTHREAD_SETNAME_3 failed with the following compile output:
+Change Dir: /mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_11566/fast && /usr/bin/make -f CMakeFiles/cmTC_11566.dir/build.make CMakeFiles/cmTC_11566.dir/build
+make[1]: Entering directory '/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_11566.dir/src.c.o
+/usr/bin/cc   -DHAVE_PTHREAD_SETNAME_3 -D_GNU_SOURCE -Werror=implicit-function-declaration -pthread   -o CMakeFiles/cmTC_11566.dir/src.c.o   -c "/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp/src.c"
+/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp/src.c:5:5: error: too many arguments to function ‘pthread_setname_np’
+    5 |     pthread_setname_np(pthread_self(), "foo", (void *)0);
+      |     ^~~~~~~~~~~~~~~~~~
+In file included from /mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp/src.c:2:
+/usr/include/pthread.h:427:12: note: declared here
+  427 | extern int pthread_setname_np (pthread_t __target_thread, const char *__name)
+      |            ^~~~~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_11566.dir/build.make:66: CMakeFiles/cmTC_11566.dir/src.c.o] Error 1
+make[1]: Leaving directory '/mnt/c/Program Files/CoppeliaRobotics/CoppeliaSimEdu/programming/bluezero/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_11566/fast] Error 2
+
+
+...and run output:
+
+Return value: 1
+Source file was:
+
+#include <pthread.h>
+int main()
+{
+    pthread_setname_np(pthread_self(), "foo", (void *)0);
+    return 0;
+}
+

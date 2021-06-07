@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "prh_pi.h": "c",
+        "rtwtypes.h": "c",
+        "stdio.h": "c"
+    }
+}
