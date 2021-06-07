@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.4.2-27-gc3b3358  Build Version: 1.4.6891.25992
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Full assembly Draft 2">
+  <link
+    name="envolope and servos">
+    <inertial>
+      <origin
+        xyz="-0.00021282 0.0067764 -0.00062377"
+        rpy="0 0 0" />
+      <mass
+        value="16.899" />
+      <inertia
+        ixx="10.748"
+        ixy="-0.22102"
+        ixz="0.00011007"
+        iyy="17.79"
+        iyz="-0.0034384"
+        izz="10.741" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/envolope and servos.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/envolope and servos.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="motor 1">
+    <inertial>
+      <origin
+        xyz="6.3353E-05 0.0022493 -0.021222"
+        rpy="0 0 0" />
+      <mass
+        value="0.053823" />
+      <inertia
+        ixx="7.1796E-05"
+        ixy="2.4004E-08"
+        ixz="2.8141E-11"
+        iyy="7.2679E-05"
+        iyz="1.2772E-09"
+        izz="1.4986E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/motor 1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.52941 0.54902 0.54902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/motor 1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="motor 1"
+    type="revolute">
+    <origin
+      xyz="1.1028 0.98494 0"
+      rpy="-1.5708 0.027437 1.5708" />
+    <parent
+      link="envolope and servos" />
+    <child
+      link="motor 1" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="prop 1">
+    <inertial>
+      <origin
+        xyz="0.00500001332709954 0.00494704835279746 0.0038000561089766"
+        rpy="0 0 0" />
+      <mass
+        value="0.0055645119651105" />
+      <inertia
+        ixx="1.91129254172353E-05"
+        ixy="1.00332940886986E-12"
+        ixz="3.42742133834009E-06"
+        iyy="1.9853848452093E-05"
+        iyz="3.19591035590804E-13"
+        izz="7.79561279244904E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/prop 1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.294117647058824 0.294117647058824 0.294117647058824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/prop 1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop 1"
+    type="revolute">
+    <origin
+      xyz="-0.0025421 0.02597 -0.060428"
+      rpy="3.1416 1.4655 3.1142" />
+    <parent
+      link="motor 1" />
+    <child
+      link="prop 1" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="motor 2">
+    <inertial>
+      <origin
+        xyz="6.33527294978675E-05 0.00224925346662147 -0.0212220651479016"
+        rpy="0 0 0" />
+      <mass
+        value="0.0538230212132089" />
+      <inertia
+        ixx="7.17960825831187E-05"
+        ixy="2.40037545371338E-08"
+        ixz="2.81405053270485E-11"
+        iyy="7.26788311544435E-05"
+        iyz="1.27719102126626E-09"
+        izz="1.49862701447954E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/motor 2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/motor 2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="motor 2"
+    type="revolute">
+    <origin
+      xyz="1.1028 -0.97319 0"
+      rpy="-1.5708 0.027437 1.5708" />
+    <parent
+      link="envolope and servos" />
+    <child
+      link="motor 2" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="prop 2">
+    <inertial>
+      <origin
+        xyz="0.00499999938084139 0.00494705342676535 0.00380006497191665"
+        rpy="0 0 0" />
+      <mass
+        value="0.00556449705813733" />
+      <inertia
+        ixx="1.91129252285039E-05"
+        ixy="8.54727779509433E-13"
+        ixz="3.42742104217454E-06"
+        iyy="1.98538479618724E-05"
+        iyz="4.30763082650705E-13"
+        izz="7.79560871279399E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/prop 2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.294117647058824 0.294117647058824 0.294117647058824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/prop 2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop 2"
+    type="revolute">
+    <origin
+      xyz="-0.0025421 0.02597 -0.060428"
+      rpy="3.1416 1.4655 3.1142" />
+    <parent
+      link="motor 2" />
+    <child
+      link="prop 2" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="motor 3">
+    <inertial>
+      <origin
+        xyz="6.33527269739975E-05 0.00224925337465614 -0.0212220651479018"
+        rpy="0 0 0" />
+      <mass
+        value="0.0538230212132085" />
+      <inertia
+        ixx="7.17960825831179E-05"
+        ixy="2.40037545371345E-08"
+        ixz="2.81405053211223E-11"
+        iyy="7.26788311544428E-05"
+        iyz="1.27719102124864E-09"
+        izz="1.49862701447954E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/motor 3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/motor 3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="motor 3"
+    type="revolute">
+    <origin
+      xyz="-1.1028 -0.98494 0"
+      rpy="-1.5708 0.027437 -1.5708" />
+    <parent
+      link="envolope and servos" />
+    <child
+      link="motor 3" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="prop 3">
+    <inertial>
+      <origin
+        xyz="0.0049999992934382 0.00494705342616975 0.00380006584519799"
+        rpy="0 0 0" />
+      <mass
+        value="0.00556449705283645" />
+      <inertia
+        ixx="1.91129252031325E-05"
+        ixy="8.55016539282198E-13"
+        ixz="3.42742103971084E-06"
+        iyy="1.98538479362908E-05"
+        iyz="4.27759556895875E-13"
+        izz="7.79560871066394E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/prop 3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.294117647058824 0.294117647058824 0.294117647058824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/prop 3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop 3"
+    type="revolute">
+    <origin
+      xyz="-0.0025421 0.02597 -0.060428"
+      rpy="3.1416 1.4655 3.1142" />
+    <parent
+      link="motor 3" />
+    <child
+      link="prop 3" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="motor 4">
+    <inertial>
+      <origin
+        xyz="6.33527269739975E-05 0.00224925337465613 -0.0212220651479023"
+        rpy="0 0 0" />
+      <mass
+        value="0.0538230212132084" />
+      <inertia
+        ixx="7.17960825831179E-05"
+        ixy="2.40037545371427E-08"
+        ixz="2.81405053173399E-11"
+        iyy="7.26788311544427E-05"
+        iyz="1.27719102127323E-09"
+        izz="1.49862701447954E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/motor 4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/motor 4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="motor 4"
+    type="revolute">
+    <origin
+      xyz="-1.1028 0.97319 0"
+      rpy="-1.5708 0.027437 -1.5708" />
+    <parent
+      link="envolope and servos" />
+    <child
+      link="motor 4" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="prop 4">
+    <inertial>
+      <origin
+        xyz="0.00499999935697137 0.00494705342402644 0.00380006517745568"
+        rpy="0 0 0" />
+      <mass
+        value="0.00556449702603266" />
+      <inertia
+        ixx="1.91129250710684E-05"
+        ixy="8.5480234917363E-13"
+        ixz="3.42742102580877E-06"
+        iyy="1.98538478027415E-05"
+        iyz="4.30281018734455E-13"
+        izz="7.79560869563914E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/prop 4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.294117647058824 0.294117647058824 0.294117647058824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Draft 2/meshes/prop 4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop 4"
+    type="revolute">
+    <origin
+      xyz="-0.0025421 0.02597 -0.060428"
+      rpy="3.1416 1.4655 3.1142" />
+    <parent
+      link="motor 4" />
+    <child
+      link="prop 4" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+</robot>

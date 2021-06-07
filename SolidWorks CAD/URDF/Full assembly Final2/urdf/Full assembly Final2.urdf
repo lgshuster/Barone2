@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.4.2-27-gc3b3358  Build Version: 1.4.6891.25992
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Full assembly Final2">
+  <link
+    name="envolope and servos">
+    <inertial>
+      <origin
+        xyz="1.7803E-15 -6.3642E-14 -5.6805E-15"
+        rpy="0 0 0" />
+      <mass
+        value="0.85" />
+      <inertia
+        ixx="10.74"
+        ixy="9.8215E-18"
+        ixz="2.6492E-14"
+        iyy="10.74"
+        iyz="0.0034459"
+        izz="17.795" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/envolope and servos.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/envolope and servos.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Bracket 1">
+    <inertial>
+      <origin
+        xyz="0.98823 -0.97437 0.00055778"
+        rpy="0 0 0" />
+      <mass
+        value="0.052" />
+      <inertia
+        ixx="1.3454E-05"
+        ixy="-4.5931E-06"
+        ixz="1.6505E-07"
+        iyy="1.3029E-05"
+        iyz="-1.5706E-07"
+        izz="2.0557E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Bracket 1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79608 0.82353 0.93725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Bracket 1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="B1"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="envolope and servos" />
+    <child
+      link="Bracket 1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Motor1">
+    <inertial>
+      <origin
+        xyz="1.1388 -0.98449 0.007985"
+        rpy="0 0 0" />
+      <mass
+        value="0.085" />
+      <inertia
+        ixx="2.6444E-06"
+        ixy="-1.2805E-09"
+        ixz="6.4664E-10"
+        iyy="7.2927E-05"
+        iyz="6.2507E-08"
+        izz="7.4062E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Motor1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.95294 0.79608 0.48627 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Motor1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="M1"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Bracket 1" />
+    <child
+      link="Motor1" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Prop1">
+    <inertial>
+      <origin
+        xyz="1.1765 -0.98245 0.045278"
+        rpy="0 0 0" />
+      <mass
+        value="0.0097" />
+      <inertia
+        ixx="3.7868E-07"
+        ixy="2.0553E-06"
+        ixz="-1.1306E-07"
+        iyy="1.9514E-05"
+        iyz="1.8641E-08"
+        izz="1.9852E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Prop1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29412 0.29412 0.29412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Prop1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="P1"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Motor1" />
+    <child
+      link="Prop1" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Bracket 2">
+    <inertial>
+      <origin
+        xyz="-0.98823 -0.9752 -0.00055778"
+        rpy="0 0 0" />
+      <mass
+        value="0.052" />
+      <inertia
+        ixx="1.3454E-05"
+        ixy="4.6296E-06"
+        ixz="1.6505E-07"
+        iyy="1.3029E-05"
+        iyz="1.5706E-07"
+        izz="2.0557E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Bracket 2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79608 0.82353 0.93725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Bracket 2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="B2"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="envolope and servos" />
+    <child
+      link="Bracket 2" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Motor2">
+    <inertial>
+      <origin
+        xyz="-1.1388 -0.97363 0.007985"
+        rpy="0 0 0" />
+      <mass
+        value="0.085" />
+      <inertia
+        ixx="2.6444E-06"
+        ixy="-1.2805E-09"
+        ixz="-6.4664E-10"
+        iyy="7.2927E-05"
+        iyz="-6.2507E-08"
+        izz="7.4062E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Motor2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.95294 0.79608 0.48627 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Motor2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="M2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Bracket 2" />
+    <child
+      link="Motor2" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Prop2">
+    <inertial>
+      <origin
+        xyz="-1.1765 -0.97568 0.045278"
+        rpy="0 0 0" />
+      <mass
+        value="0.0097" />
+      <inertia
+        ixx="3.7868E-07"
+        ixy="2.0553E-06"
+        ixz="1.1306E-07"
+        iyy="1.9514E-05"
+        iyz="-1.8641E-08"
+        izz="1.9852E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Prop2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29412 0.29412 0.29412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Prop2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="P2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Motor2" />
+    <child
+      link="Prop2" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Bracket 3">
+    <inertial>
+      <origin
+        xyz="0.98823 0.9752 -0.00055778"
+        rpy="0 0 0" />
+      <mass
+        value="0.052" />
+      <inertia
+        ixx="1.3454E-05"
+        ixy="4.6296E-06"
+        ixz="-1.6505E-07"
+        iyy="1.3029E-05"
+        iyz="-1.5706E-07"
+        izz="2.0557E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Bracket 3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79608 0.82353 0.93725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Bracket 3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="B3"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="envolope and servos" />
+    <child
+      link="Bracket 3" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Motor3">
+    <inertial>
+      <origin
+        xyz="1.1388 0.97363 0.007985"
+        rpy="0 0 0" />
+      <mass
+        value="0.085" />
+      <inertia
+        ixx="2.6444E-06"
+        ixy="-1.2805E-09"
+        ixz="6.4664E-10"
+        iyy="7.2927E-05"
+        iyz="6.2507E-08"
+        izz="7.4062E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Motor3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.95294 0.79608 0.48627 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Motor3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="M3"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Bracket 3" />
+    <child
+      link="Motor3" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Prop3">
+    <inertial>
+      <origin
+        xyz="1.1765 0.97568 0.045278"
+        rpy="0 0 0" />
+      <mass
+        value="0.0097" />
+      <inertia
+        ixx="3.7868E-07"
+        ixy="2.0553E-06"
+        ixz="-1.1306E-07"
+        iyy="1.9514E-05"
+        iyz="1.8641E-08"
+        izz="1.9852E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Prop3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29412 0.29412 0.29412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Prop3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="P3"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Motor3" />
+    <child
+      link="Prop3" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Bracket 4">
+    <inertial>
+      <origin
+        xyz="-0.98823 0.97437 0.00055778"
+        rpy="0 0 0" />
+      <mass
+        value="0.052" />
+      <inertia
+        ixx="1.3454E-05"
+        ixy="-4.5931E-06"
+        ixz="-1.6505E-07"
+        iyy="1.3029E-05"
+        iyz="1.5706E-07"
+        izz="2.0557E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Bracket 4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79608 0.82353 0.93725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Bracket 4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="B4"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="envolope and servos" />
+    <child
+      link="Bracket 4" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Motor4">
+    <inertial>
+      <origin
+        xyz="-1.1388 0.98449 0.007985"
+        rpy="0 0 0" />
+      <mass
+        value="0.085" />
+      <inertia
+        ixx="2.6444E-06"
+        ixy="-1.2805E-09"
+        ixz="-6.4664E-10"
+        iyy="7.2927E-05"
+        iyz="-6.2507E-08"
+        izz="7.4062E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Motor4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.95294 0.79608 0.48627 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Motor4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="M4"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Bracket 4" />
+    <child
+      link="Motor4" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Prop4">
+    <inertial>
+      <origin
+        xyz="-1.1765 0.98245 0.045278"
+        rpy="0 0 0" />
+      <mass
+        value="0.0097" />
+      <inertia
+        ixx="3.7868E-07"
+        ixy="2.0553E-06"
+        ixz="1.1306E-07"
+        iyy="1.9514E-05"
+        iyz="-1.8641E-08"
+        izz="1.9852E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Prop4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29412 0.29412 0.29412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Prop4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="P4"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Motor4" />
+    <child
+      link="Prop4" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Gondola">
+    <inertial>
+      <origin
+        xyz="0.00092234 -0.026608 -0.55761"
+        rpy="0 0 0" />
+      <mass
+        value="2" />
+      <inertia
+        ixx="0.0016967"
+        ixy="1.4826E-06"
+        ixz="-4.5017E-09"
+        iyy="0.0022068"
+        iyz="1.0376E-08"
+        izz="0.0034159" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Gondola.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Gondola.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="G"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="envolope and servos" />
+    <child
+      link="Gondola" />
+    <axis
+      xyz="0 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Ulta">
+    <inertial>
+      <origin
+        xyz="2.3072E-08 -1.3848 0.00036898"
+        rpy="0 0 0" />
+      <mass
+        value="0.193" />
+      <inertia
+        ixx="3.9599E-05"
+        ixy="-1.1473E-10"
+        ixz="-2.2495E-10"
+        iyy="0.00046961"
+        iyz="1.0515E-06"
+        izz="0.00047006" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Ulta.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Full assembly Final2/meshes/Ulta.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="U"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="envolope and servos" />
+    <child
+      link="Ulta" />
+    <axis
+      xyz="0 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+</robot>
